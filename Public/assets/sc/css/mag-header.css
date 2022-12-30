@@ -1,0 +1,168 @@
+@charset "UTF-8";
+@import url("https://use.fontawesome.com/releases/v5.7.1/css/all.css");
+.Mag__header {
+  font-family: Titillium Web;
+  background-color: #F4F4F4;
+  margin: 0;
+  padding: 20px;
+}
+.Mag__header .Mag__header-breadcrumb {
+  position: relative;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration: none;
+  color: #7D8288;
+  display: inline-block;
+  padding-left: 14px;
+}
+.Mag__header .Mag__header-breadcrumb:after {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7D8288;
+}
+.Mag__header .Mag__header-breadcrumb::after {
+  left: 0;
+  font-size: 8px;
+}
+.Mag__header .Mag__header-title {
+  position: relative;
+  text-align: center;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+.Mag__header .Mag__header-title h2 {
+  font-size: 45px;
+  line-height: 50px;
+  font-weight: 700;
+}
+.Mag__header .Mag__header-title h2:after {
+  content: "";
+  font-family: "icons";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7D8288;
+}
+.Mag__header .Mag__header-title h2::after {
+  font-size: 14px;
+  left: -20px;
+  top: 0;
+  transform: translateY(0%);
+  color: #27263C;
+}
+.Mag__header .Mag__header-title h2.big-title {
+  font-size: 100px;
+  line-height: 100px;
+  font-weight: 400;
+}
+.Mag__header .Mag__header-title h2.big-title::after {
+  font-size: 22px;
+  left: -20px;
+  top: 0;
+  transform: translateY(0%);
+  color: #D20000;
+}
+.Mag__header .Section__mag-search {
+  width: 100%;
+  max-width: 570px;
+  margin: 0 auto;
+  position: relative;
+}
+.Mag__header .Section__mag-search:after {
+  content: "";
+  font-family: "icons";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7D8288;
+}
+.Mag__header .Section__mag-search::after {
+  right: 18px;
+  color: #056F9F;
+}
+.Mag__header .Section__mag-search input {
+  width: 100%;
+  font-size: 14px;
+  padding: 18px 0 18px 20px;
+  line-height: 21px;
+  color: #F4F4F4;
+  border: 1px solid #E4E4E4;
+}
+.Mag__header .Section__mag-tag {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
+  text-align: center;
+}
+.Mag__header .Section__mag-tag .mag-tag__element {
+  display: inline-block;
+  background-color: white;
+  padding: 3px 15px;
+  border-radius: 100px;
+  border: 1px solid #E4E4E4;
+  color: #27263C;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  margin-top: 13px;
+}
+.Mag__header .Section__mag-tag .mag-tag__element:not(first-child) {
+  margin-left: 20px;
+}
+.Mag__header .display-less {
+  position: relative;
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+.Mag__header .display-less:after {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7D8288;
+}
+.Mag__header .display-less::after {
+  right: -20px;
+  font-size: 12px;
+}
+
+/*# sourceMappingURL=mag-header.css.map */

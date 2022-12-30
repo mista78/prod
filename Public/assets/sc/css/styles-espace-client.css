@@ -1,0 +1,2918 @@
+@charset "UTF-8";
+/* ! SIZES
+------------------------- */
+/*$font-root              : rnd( $font-size / 16 * 100% )
+$line-height            : rnd( 16 / $font-size )*/
+main .background-cancel-order, main .loading__container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+}
+main .background-cancel-order > .cancel-order__container, main .loading__container > .cancel-order__container {
+  background: #ffffff;
+  padding: 20px;
+  transform: translateY(50%);
+}
+main .background-cancel-order > .cancel-order__container > span, main .loading__container > .cancel-order__container > span {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: #d21d00;
+  cursor: pointer;
+}
+main .background-cancel-order > .cancel-order__container > form > h2, main .loading__container > .cancel-order__container > form > h2 {
+  font-size: 30px;
+  font-weight: 900;
+}
+main .background-cancel-order > .cancel-order__container > form > p span, main .loading__container > .cancel-order__container > form > p span {
+  font-weight: 900;
+}
+main .background-cancel-order > .cancel-order__container > form > .radios__wrapper, main .loading__container > .cancel-order__container > form > .radios__wrapper {
+  flex-direction: column;
+}
+main .background-cancel-order > .cancel-order__container > form > .radios__wrapper > div, main .loading__container > .cancel-order__container > form > .radios__wrapper > div {
+  margin-bottom: 10px;
+}
+main .background-cancel-order > .cancel-order__container > form > div, main .loading__container > .cancel-order__container > form > div {
+  margin-top: 10px;
+}
+main .background-cancel-order > .cancel-order__container > form > div button, main .loading__container > .cancel-order__container > form > div button {
+  width: 100%;
+}
+main .background-cancel-order > .cancel-order__container > form > div button:first-child, main .loading__container > .cancel-order__container > form > div button:first-child {
+  margin-bottom: 10px;
+}
+main .background-cancel-order > .cancel-order__container > form > div button:hover, main .loading__container > .cancel-order__container > form > div button:hover {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2) !important;
+}
+main .loading__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+main .loading__container img {
+  width: 50px;
+  height: 50px;
+}
+main .registration__container .register-actions__container {
+  display: flex;
+  flex-direction: column;
+}
+main .registration__container .register-actions__container .left-register-actions__container {
+  margin-bottom: 10px;
+  border: 1px solid #e4e4e4;
+}
+main .registration__container .register-actions__container .left-register-actions__container > a {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #c7c7c7;
+  background-color: #f4f4f4;
+}
+main .registration__container .register-actions__container .left-register-actions__container > a:first-child {
+  border-right: 1px solid #e4e4e4;
+}
+main .registration__container .register-actions__container .left-register-actions__container > a.active {
+  color: #d21d00;
+  background-color: #ffffff;
+}
+main .registration__container .register-actions__container .right-register-actions__container > * {
+  width: 100%;
+}
+main .registration__container .register-actions__container .right-register-actions__container > a:nth-of-type(2) {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e4e4e4;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+main .registration__container .register-actions__container .right-register-actions__container > a:nth-of-type(2):not(.is-inactive) {
+  cursor: pointer !important;
+}
+main .registration__container .register-actions__container .right-register-actions__container > a:nth-of-type(2):not(.is-inactive):hover {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2) !important;
+}
+main .registration__container .register-actions__container .right-register-actions__container > a:nth-of-type(2) span {
+  background: url("../media/img/icon-download-selection-v5.png") no-repeat 100% 50%;
+  text-align: left;
+}
+main .registration__container .register-actions__container .right-register-actions__container > a:nth-of-type(2) span strong {
+  display: block;
+  font-weight: 600;
+}
+main .registration__container .register-actions__container .right-register-actions__container > .is-inactive {
+  opacity: 0.4;
+  cursor: default !important;
+}
+main .registration__container .register-actions__container .right-register-actions__container > a.cta-light--grey:hover {
+  border: 1px solid #d21d00 !important;
+  color: #d21d00 !important;
+}
+main .registration__container .sidebar__container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 65px;
+  bottom: 0;
+  background-color: #ffffff;
+  padding: 25px 20px;
+  z-index: 500;
+  overflow-y: auto;
+}
+main .registration__container .sidebar__container.hide {
+  left: 100%;
+}
+main .registration__container .sidebar__container > a {
+  background: url("../media/img/icon-arrow-return-red-v5.png") no-repeat left center;
+  color: #737a80;
+  font-size: 16px;
+  font-weight: 600;
+}
+main .registration__container .sidebar__container > a span {
+  margin-left: 20px;
+}
+main .registration__container .sidebar__container form .filters__container {
+  border: 1px solid #e4e4e4;
+  padding: 20px;
+  margin: 25px 0;
+  background: #ffffff;
+}
+main .registration__container .sidebar__container form .filters__container.tuto-active {
+  position: relative;
+  z-index: 1000;
+  pointer-events: none;
+}
+main .registration__container .sidebar__container form .filters__container h3 {
+  color: #222222;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+main .registration__container .sidebar__container form .filters__container > div {
+  margin-bottom: 15px;
+}
+main .registration__container .sidebar__container form .filters__container > div:last-child {
+  margin-bottom: 0;
+}
+main .registration__container .sidebar__container form a {
+  width: 100%;
+}
+main .registration__container .formations__container {
+  margin-top: 30px;
+}
+main .registration__container .formations__container .no-results__container, main .registration__container .formations__container .error-message-ajax__container {
+  text-align: center;
+  font-weight: 600;
+}
+main .registration__container .formations__container .formation__container {
+  margin-top: 10px;
+  background-color: #f4f4f4;
+}
+main .registration__container .formations__container .formation__container .header-formation__container {
+  padding: 0 20px;
+  padding-top: 30px;
+  border: 1px solid #e4e4e4;
+}
+main .registration__container .formations__container .formation__container .header-formation__container ul:first-of-type {
+  padding: 25px 0;
+  border-bottom: 1px solid #e4e4e4;
+}
+main .registration__container .formations__container .formation__container .header-formation__container ul:first-of-type li {
+  font-size: 16px;
+  line-height: 24px;
+  color: #222222;
+  font-weight: 400;
+  margin-top: 5px;
+}
+main .registration__container .formations__container .formation__container .header-formation__container ul:first-of-type li:before {
+  content: attr(data-field);
+  margin-right: 5px;
+  color: #757575;
+}
+main .registration__container .formations__container .formation__container .header-formation__container .title-formation__container {
+  padding: 30px 0;
+}
+main .registration__container .formations__container .formation__container .header-formation__container .title-formation__container a {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  color: #222222;
+  display: block;
+  margin-bottom: 10px;
+}
+main .registration__container .formations__container .formation__container .header-formation__container .title-formation__container span {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #757575;
+}
+main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container {
+  padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #e4e4e4;
+}
+main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container li {
+  background-repeat: no-repeat;
+  background-position: left center;
+  color: #757575;
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 25px;
+}
+main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container li.duration {
+  flex-basis: 50%;
+  background-image: url("../media/img/icon-duration-v5.png");
+}
+main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container li.reference {
+  flex-basis: 50%;
+  background-image: url("../media/img/icon-reference-v5.png");
+}
+main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container li:last-child {
+  margin-top: 15px;
+  padding-left: 0;
+  font-weight: 600;
+}
+main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container li:last-child.canceled {
+  color: #d20000;
+}
+main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container li:last-child.validated {
+  color: #bdd164;
+}
+main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container li:last-child.pending {
+  color: #f0730f;
+}
+main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container li:last-child.payment {
+  color: #909d4a;
+}
+main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container li:last-child a {
+  display: block;
+  color: #222222;
+  font-weight: 400;
+  text-decoration: underline;
+}
+main .registration__container .formations__container .formation__container .main-formation__container {
+  padding: 25px 20px;
+  background: #ffffff;
+  border-left: 1px solid #e4e4e4;
+  border-right: 1px solid #e4e4e4;
+}
+main .registration__container .formations__container .formation__container .main-formation__container ul li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  padding-bottom: 15px;
+}
+main .registration__container .formations__container .formation__container .main-formation__container ul li:before {
+  content: attr(data-field);
+  color: #757575;
+}
+main .registration__container .formations__container .formation__container .main-formation__container ul li > span {
+  display: inline-block;
+  width: 50%;
+  color: #222222;
+}
+main .registration__container .formations__container .formation__container .main-formation__container ul li > span a {
+  display: flex;
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  transition: 125ms ease-out;
+}
+main .registration__container .formations__container .formation__container .main-formation__container ul li > span a:hover {
+  background-color: #f4f4f4;
+}
+main .registration__container .formations__container .formation__container .main-formation__container ul li > span a span {
+  padding-right: 30px;
+  background: url("../media/img/icon-download-selection-v5.png") no-repeat 100% 50%;
+}
+main .registration__container .formations__container .formation__container .main-formation__container ul li:last-child {
+  margin-bottom: 0;
+}
+main .registration__container .formations__container .formation__container .footer-formation__container {
+  border-top: 1px solid #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  margin-top: -1px;
+}
+main .registration__container .formations__container .formation__container .footer-formation__container > a {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222222;
+  padding: 20px;
+  background-color: #ffffff !important;
+}
+main .registration__container .formations__container .formation__container .footer-formation__container > a:first-child {
+  transition: 125ms ease-out;
+}
+main .registration__container .formations__container .formation__container .footer-formation__container > a:first-child:hover {
+  background-color: #f4f4f4 !important;
+}
+main .registration__container .formations__container .formation__container .footer-formation__container > a span {
+  padding-right: 30px;
+}
+main .registration__container .formations__container .formation__container .footer-formation__container > a span strong {
+  font-weight: 600;
+}
+main .registration__container .formations__container .formation__container .footer-formation__container > a:first-of-type {
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+}
+main .registration__container .formations__container .formation__container .footer-formation__container > a:first-of-type span {
+  background: url("../media/img/icon-download-selection-v5.png") no-repeat 100% 50%;
+}
+main .registration__container .formations__container .formation__container .footer-formation__container > a:last-of-type {
+  text-align: center;
+  color: #757575;
+  font-weight: 600;
+  background-repeat: no-repeat;
+  padding-top: 0;
+  background: url("../media/img/icon-arrow-up-v5.png") no-repeat 70% 25%;
+}
+main .registration__container .formations__container .formation__container .footer-formation__container > a:last-of-type.hide {
+  background-image: url("../media/img/icon-arrow-bottom-v5.png");
+}
+
+@media (min-width: 768px) {
+  main .details_formations__container li {
+    margin: 0 !important;
+  }
+}
+@media (min-width: 980px) {
+  main .background-cancel-order > .cancel-order__container {
+    width: 50%;
+    transform: translate(50%, 50%);
+  }
+  main .background-cancel-order > .cancel-order__container > form > div {
+    display: flex;
+    align-items: flex-start;
+  }
+  main .background-cancel-order > .cancel-order__container > form > div > button {
+    width: auto;
+  }
+  main .background-cancel-order > .cancel-order__container > form > div > button + button {
+    margin-left: 20px;
+  }
+  main .registration__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  main .registration__container .register-actions__container {
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  main .registration__container .register-actions__container .left-register-actions__container {
+    width: 25%;
+    margin-right: 4%;
+  }
+  main .registration__container .register-actions__container .left-register-actions__container.tuto-active {
+    position: relative;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  main .registration__container .register-actions__container .left-register-actions__container .tuto-block {
+    width: 130%;
+    top: calc(100% + 20px);
+    pointer-events: all;
+  }
+  main .registration__container .register-actions__container .right-register-actions__container {
+    width: 71%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+  }
+  main .registration__container .register-actions__container .right-register-actions__container > a {
+    display: inline;
+    width: auto;
+    margin: 0 !important;
+  }
+  main .registration__container .register-actions__container .right-register-actions__container > a:first-child {
+    display: none;
+  }
+  main .registration__container .register-actions__container .right-register-actions__container > a:nth-child(2) {
+    flex-direction: row;
+    background-color: #ffffff !important;
+  }
+  main .registration__container .register-actions__container .right-register-actions__container > a:nth-child(2).tuto-active {
+    position: relative;
+    z-index: 1000;
+    opacity: 1 !important;
+    pointer-events: none;
+  }
+  main .registration__container .register-actions__container .right-register-actions__container > a:nth-child(2) span {
+    padding-right: 40px;
+  }
+  main .registration__container .register-actions__container .right-register-actions__container > a:nth-child(2) span strong {
+    display: inline;
+  }
+  main .registration__container .register-actions__container .right-register-actions__container .tuto-block {
+    width: 45%;
+    top: calc(100% + 20px);
+  }
+  main .registration__container .sidebar__container {
+    position: static;
+    width: 25%;
+    overflow-y: visible;
+    padding: 0;
+    z-index: auto;
+  }
+  main .registration__container .sidebar__container > a {
+    display: none;
+  }
+  main .registration__container .sidebar__container .tuto-block {
+    position: absolute;
+    width: 130%;
+    left: 116%;
+    top: 0;
+    pointer-events: all;
+  }
+  main .registration__container .sidebar__container form .filters__container {
+    margin: 0;
+  }
+  main .registration__container .sidebar__container form .filters__container select {
+    padding-right: 35px;
+  }
+  main .registration__container .sidebar__container form > a {
+    display: none;
+  }
+  main .registration__container .formations__container {
+    width: 71%;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  main .registration__container .formations__container .formation__container {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  main .registration__container .formations__container .formation__container .header-formation__container {
+    padding-left: 60px;
+    padding-right: 60px;
+    position: relative;
+  }
+  main .registration__container .formations__container .formation__container .header-formation__container .checkbox__container {
+    position: absolute;
+    top: 41px;
+    left: 20px;
+    margin-bottom: 0;
+  }
+  main .registration__container .formations__container .formation__container .header-formation__container ul:first-of-type {
+    padding-top: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  main .registration__container .formations__container .formation__container .header-formation__container ul:first-of-type li {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+  }
+  main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container {
+    display: flex;
+    align-items: flex-start;
+  }
+  main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container li {
+    flex-basis: 15% !important;
+    margin: 0 !important;
+  }
+  main .registration__container .formations__container .formation__container .header-formation__container .details_formations__container li:last-child {
+    flex-grow: 2;
+    text-align: right;
+  }
+  main .registration__container .formations__container .formation__container .main-formation__container {
+    padding: 30px 60px;
+  }
+  main .registration__container .formations__container .formation__container .main-formation__container ul li {
+    justify-content: flex-start;
+  }
+  main .registration__container .formations__container .formation__container .main-formation__container ul li:before {
+    width: 34%;
+  }
+  main .registration__container .formations__container .formation__container .main-formation__container ul li > span {
+    width: 66%;
+    display: flex;
+    justify-content: space-between;
+  }
+  main .registration__container .formations__container .formation__container .main-formation__container ul li > span a {
+    margin-top: 0;
+    padding: 0 10px;
+  }
+  main .registration__container .formations__container .formation__container .footer-formation__container {
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    padding: 0;
+  }
+  main .registration__container .formations__container .formation__container .footer-formation__container > a {
+    display: inline !important;
+    width: auto !important;
+    padding: 20px 60px;
+  }
+  main .registration__container .formations__container .formation__container .footer-formation__container > a > span {
+    padding-right: 30px;
+  }
+  main .registration__container .formations__container .formation__container .footer-formation__container > a.tuto-active {
+    position: relative;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  main .registration__container .formations__container .formation__container .footer-formation__container > a:last-of-type {
+    padding-top: 20px;
+    margin: 0 !important;
+    background-position: 85% 50% !important;
+  }
+  main .registration__container .formations__container .formation__container .footer-formation__container > a:last-of-type span {
+    padding-right: 25px;
+  }
+  main .registration__container .formations__container .formation__container .footer-formation__container .tuto-block {
+    width: 45%;
+    bottom: 133%;
+    pointer-events: all;
+  }
+  main .registration__container .formations__container .formation__container .footer-formation__container .tuto-block:first-of-type {
+    right: 0;
+  }
+  main .registration__container .formations__container .formation__container .footer-formation__container .tuto-block:last-of-type {
+    left: 0;
+  }
+}
+/* ! SIZES
+------------------------- */
+/*$font-root              : rnd( $font-size / 16 * 100% )
+$line-height            : rnd( 16 / $font-size )*/
+main .espace-client__wrapper .confirmation__container .message__container {
+  margin-top: 20px;
+  background: url("../media/img/icon-confirm-v5.png") no-repeat center top;
+}
+main .espace-client__wrapper .confirmation__container .message__container p {
+  text-align: center;
+}
+main .espace-client__wrapper .confirmation__container .message__container p:first-child {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
+  padding-top: 170px;
+}
+main .espace-client__wrapper .confirmation__container .message__container p:nth-child(2) {
+  margin-bottom: 10px;
+}
+main .espace-client__wrapper .confirmation__container .message__container p:not(:first-child) {
+  color: #757575;
+  font-size: 16px;
+}
+main .espace-client__wrapper .confirmation__container .now__container {
+  margin-top: 40px;
+  text-align: center;
+}
+main .espace-client__wrapper .confirmation__container .now__container h3 {
+  color: #222222;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+main .espace-client__wrapper .confirmation__container .now__container .step {
+  border: 1px solid #e4e4e4;
+  padding: 15px 10px;
+}
+main .espace-client__wrapper .confirmation__container .now__container .step > p {
+  position: relative;
+  font-size: 18px;
+  color: #222222;
+  font-weight: 400;
+  margin-bottom: 0;
+  text-align: left;
+  padding-left: 30px;
+}
+main .espace-client__wrapper .confirmation__container .now__container .step > p strong {
+  color: #d21d00;
+  font-weight: 400;
+}
+main .espace-client__wrapper .confirmation__container .now__container .step > p:before {
+  content: "1";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d21d00;
+  font-weight: 600;
+}
+main .espace-client__wrapper .confirmation__container .now__container .step:nth-of-type(2) > p:before {
+  content: "2";
+}
+main .espace-client__wrapper .confirmation__container .now__container .step:last-of-type > p:before {
+  content: "3";
+}
+main .espace-client__wrapper .confirmation__container .now__container .fill {
+  border-right: 2px dashed #c7c7c7;
+  position: relative;
+}
+main .espace-client__wrapper .formation-detail__container .summary-formation__container {
+  border-bottom: 1px solid #e4e4e4;
+}
+main .espace-client__wrapper .formation-detail__container .summary-formation__container > ul {
+  padding: 30px 20px;
+}
+main .espace-client__wrapper .formation-detail__container .summary-formation__container > ul li {
+  display: flex;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #222222;
+  text-align: left;
+}
+main .espace-client__wrapper .formation-detail__container .summary-formation__container > ul li:before {
+  content: attr(data-field);
+  color: #757575;
+  font-weight: 400;
+  width: 50%;
+}
+main .espace-client__wrapper .formation-detail__container .summary-formation__container > ul li:last-child {
+  margin-bottom: 0;
+}
+main .espace-client__wrapper .formation-detail__container .list-users__container {
+  margin-top: -1px;
+}
+main .espace-client__wrapper .formation-detail__container .list-users__container .user-detail__container {
+  padding: 30px 20px;
+  border-bottom: 1px solid #e4e4e4;
+}
+main .espace-client__wrapper .formation-detail__container .list-users__container .user-detail__container h3 {
+  font-size: 18px;
+  color: #222222;
+  margin-bottom: 25px;
+}
+main .espace-client__wrapper .formation-detail__container .list-users__container .user-detail__container ul li {
+  color: #222222;
+  font-weight: 400;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+main .espace-client__wrapper .formation-detail__container .list-users__container .user-detail__container ul li:last-child {
+  margin-bottom: 0;
+}
+main .espace-client__wrapper .formation-detail__container .list-users__container .user-detail__container ul li:before {
+  content: attr(data-field);
+  display: block;
+  width: 50%;
+  color: #757575;
+}
+main .espace-client__wrapper .formation-detail__container .price__container {
+  padding: 30px 20px;
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: -1px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+main .espace-client__wrapper .formation-detail__container .price__container p {
+  margin-bottom: 0;
+  color: #757575;
+  font-size: 14px;
+  font-weight: 600;
+}
+main .espace-client__wrapper .formation-detail__container .price__container span:first-of-type {
+  color: #d21d00;
+  font-size: 30px;
+  font-weight: 200;
+  margin-bottom: -5px;
+}
+main .espace-client__wrapper .formation-detail__container .price__container span:first-of-type strong {
+  font-weight: 700;
+  margin-right: 5px;
+}
+main .espace-client__wrapper .confirm__container + p {
+  color: #757575;
+  line-height: 26px;
+}
+main .espace-client__wrapper .link__container {
+  text-align: center;
+  margin-top: 20px;
+}
+main .espace-client__wrapper .link__container a {
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  color: #757575;
+  width: 70%;
+  height: 20px;
+  padding-right: 30px;
+  letter-spacing: 0.6px;
+  background: url("../media/img/icon-arrow-bottom-v5.png") no-repeat 100% 50%;
+}
+main .espace-client__wrapper .link__container a.show {
+  background: url("../media/img/icon-arrow-up-v5.png") no-repeat 100% 50%;
+}
+
+@media (min-width: 980px) {
+  main .espace-client__wrapper .confirmation__container .message__container p:last-child {
+    margin-bottom: 50px;
+  }
+  main .espace-client__wrapper .confirmation__container .now__container {
+    width: 68%;
+    margin: 0 auto;
+  }
+  main .espace-client__wrapper .confirmation__container .now__container .step > p {
+    padding-left: 60px;
+  }
+  main .espace-client__wrapper .confirmation__container .now__container .step > p:before {
+    left: 25px;
+  }
+  main .espace-client__wrapper .formation-detail__container {
+    margin-top: 30px;
+  }
+  main .espace-client__wrapper .formation-detail__container .summary-formation__container {
+    flex-grow: 4;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: -1px;
+  }
+  main .espace-client__wrapper .formation-detail__container .summary-formation__container > ul {
+    padding: 30px 60px;
+  }
+  main .espace-client__wrapper .formation-detail__container .summary-formation__container > ul li:before {
+    width: 35%;
+  }
+  main .espace-client__wrapper .formation-detail__container .list-users__container {
+    order: 4;
+    width: 100%;
+    padding: 30px 60px;
+  }
+  main .espace-client__wrapper .formation-detail__container .list-users__container .user-detail__container {
+    border-bottom: none;
+    padding: 0;
+  }
+  main .espace-client__wrapper .formation-detail__container .list-users__container .user-detail__container h3 {
+    display: none;
+  }
+  main .espace-client__wrapper .formation-detail__container .list-users__container .user-detail__container ul li {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  main .espace-client__wrapper .formation-detail__container .list-users__container .user-detail__container ul li:last-child {
+    margin-bottom: 0;
+  }
+  main .espace-client__wrapper .formation-detail__container .list-users__container .user-detail__container ul li:before {
+    width: 24%;
+  }
+  main .espace-client__wrapper .formation-detail__container > .price__container {
+    flex-grow: 1;
+    order: 3;
+  }
+  main .espace-client__wrapper .link__container {
+    padding-left: 60px;
+    text-align: left;
+  }
+  main .espace-client__wrapper .link__container a {
+    width: 20%;
+  }
+}
+/* ! SIZES
+------------------------- */
+/*$font-root              : rnd( $font-size / 16 * 100% )
+$line-height            : rnd( 16 / $font-size )*/
+main .pop-in__container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  z-index: 2000;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+main .pop-in__container > div {
+  position: relative;
+  background: #ffffff;
+  padding: 20px;
+  width: 100%;
+}
+main .pop-in__container > div > span {
+  position: absolute;
+  right: 20px;
+  color: #d21d00;
+  cursor: pointer;
+}
+main .pop-in__container > div > form > h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+main .pop-in__container > div > form div {
+  margin-top: 10px;
+}
+main .pop-in__container > div > form button {
+  margin-top: 20px;
+  width: 100%;
+}
+main .pop-in__container > div > form button:hover {
+  border: 1px solid #757575 !important;
+  color: #757575 !important;
+}
+main .espace-client__wrapper .devis__container, main .espace-client__wrapper .users-management__container {
+  margin: 10px 0;
+}
+main .espace-client__wrapper .devis__container table, main .espace-client__wrapper .users-management__container table {
+  width: 100%;
+}
+main .espace-client__wrapper .devis__container table thead, main .espace-client__wrapper .users-management__container table thead {
+  display: none;
+}
+main .espace-client__wrapper .devis__container table tbody tr, main .espace-client__wrapper .users-management__container table tbody tr {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  border: 1px solid #e4e4e4;
+  margin-bottom: 10px;
+}
+main .espace-client__wrapper .devis__container table tbody tr td, main .espace-client__wrapper .users-management__container table tbody tr td {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #757575;
+  margin-bottom: 15px;
+}
+main .espace-client__wrapper .devis__container table tbody tr td:not(:first-child):not(:last-child), main .espace-client__wrapper .users-management__container table tbody tr td:not(:first-child):not(:last-child) {
+  position: relative;
+  padding-left: 32%;
+}
+main .espace-client__wrapper .devis__container table tbody tr td:not(:first-child):not(:last-child):before, main .espace-client__wrapper .users-management__container table tbody tr td:not(:first-child):not(:last-child):before {
+  content: attr(data-field);
+  position: absolute;
+  left: 0;
+  color: #222222;
+}
+main .espace-client__wrapper .devis__container table tbody tr td:first-child, main .espace-client__wrapper .users-management__container table tbody tr td:first-child {
+  color: #222222;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+main .espace-client__wrapper .devis__container table tbody tr td:last-child, main .espace-client__wrapper .users-management__container table tbody tr td:last-child {
+  margin-bottom: 0;
+}
+main .espace-client__wrapper .devis__container table tbody tr td:last-child a, main .espace-client__wrapper .users-management__container table tbody tr td:last-child a {
+  border-radius: 0;
+  font-size: 14px;
+  padding: 5px 30px;
+}
+main .espace-client__wrapper .devis__container table tbody tr:last-child, main .espace-client__wrapper .users-management__container table tbody tr:last-child {
+  margin-bottom: 0;
+}
+main .espace-client__wrapper .devis__container table tbody tr.spacer, main .espace-client__wrapper .users-management__container table tbody tr.spacer {
+  display: none;
+}
+main .espace-client__wrapper .devis__container > p, main .espace-client__wrapper .users-management__container > p {
+  margin: 20px 0 10px;
+  font-size: 14px;
+}
+main .espace-client__wrapper .devis__container > .buttons__container, main .espace-client__wrapper .users-management__container > .buttons__container {
+  margin-top: 15px;
+}
+main .espace-client__wrapper .users-management__container table tbody tr td:not(:first-child):not(:last-child) {
+  padding-left: 40%;
+}
+main .espace-client__wrapper .users-management__container table tbody tr td a {
+  margin-right: 10px;
+}
+main .espace-client__wrapper .users-management__container table tbody tr td a.cta-light--grey:hover {
+  border: 1px solid #d21d00 !important;
+  color: #d21d00 !important;
+}
+main .espace-client__wrapper .users-management__container table tbody tr td a.cta-light--red:hover {
+  border: 1px solid #757575 !important;
+  color: #757575 !important;
+}
+
+@media (min-width: 980px) {
+  main .pop-in__container {
+    justify-content: center;
+  }
+  main .pop-in__container > div {
+    width: 40%;
+  }
+  main .pop-in__container > div > form > button {
+    width: auto;
+  }
+  main .espace-client__wrapper .devis__container table, main .espace-client__wrapper .users-management__container table {
+    width: 100%;
+  }
+  main .espace-client__wrapper .devis__container table thead, main .espace-client__wrapper .users-management__container table thead {
+    display: table-header-group;
+  }
+  main .espace-client__wrapper .devis__container table thead tr th, main .espace-client__wrapper .users-management__container table thead tr th {
+    font-size: 16px;
+    color: #222222;
+    font-weight: 400;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }
+  main .espace-client__wrapper .devis__container table tbody tr, main .espace-client__wrapper .users-management__container table tbody tr {
+    display: table-row;
+    position: relative;
+  }
+  main .espace-client__wrapper .devis__container table tbody tr td, main .espace-client__wrapper .users-management__container table tbody tr td {
+    padding: 15px 20px !important;
+  }
+  main .espace-client__wrapper .devis__container table tbody tr td:before, main .espace-client__wrapper .users-management__container table tbody tr td:before {
+    content: none !important;
+  }
+  main .espace-client__wrapper .devis__container table tbody tr.spacer, main .espace-client__wrapper .users-management__container table tbody tr.spacer {
+    display: table-row;
+    height: 20px;
+    width: 100%;
+  }
+  main .espace-client__wrapper .users-management__container > .select__wrapper {
+    width: 30%;
+    margin-bottom: 30px;
+  }
+  main .espace-client__wrapper .users-management__container > p {
+    margin-bottom: 20px;
+  }
+  main .espace-client__wrapper .users-management__container table tbody tr td:last-child {
+    width: 26%;
+  }
+  main .espace-client__wrapper .users-management__container > .buttons__container {
+    justify-content: center;
+  }
+}
+/* ! SIZES
+------------------------- */
+/*$font-root              : rnd( $font-size / 16 * 100% )
+$line-height            : rnd( 16 / $font-size )*/
+.tuto-background, .tuto-block {
+  display: none;
+}
+
+@media (min-width: 980px) {
+  .tuto-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+  }
+  .tuto-background.tuto-active {
+    display: block;
+  }
+  .tuto-background * {
+    box-sizing: border-box;
+  }
+  .tuto-background > .tuto-block {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 28%;
+  }
+  .tuto-background > .tuto-block p {
+    line-height: 21px;
+    color: #757575;
+    margin-bottom: 10px;
+  }
+  .tuto-background > .tuto-block p strong {
+    font-size: 22px;
+    line-height: 26px;
+    color: #222222;
+    font-weight: 700;
+  }
+  .tuto-background > .tuto-block p + span {
+    color: #757575;
+    margin-bottom: 0 !important;
+  }
+  .tuto-background > .tuto-block form {
+    margin-top: 5px;
+  }
+  .tuto-background > .tuto-block form ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .tuto-background > .tuto-block form ul li {
+    width: 33px;
+    height: 33px;
+    background: url("../media/img/avis-etoile-empty.png");
+    cursor: pointer;
+  }
+  .tuto-background > .tuto-block form ul li.checked {
+    background: url("../media/img/avis-etoile-plain.png");
+  }
+  .tuto-background > .tuto-block form textarea {
+    border: 1px solid #e4e4e4;
+    width: 100%;
+    height: 120px;
+    padding: 10px 20px;
+  }
+  .tuto-background > .tuto-block a:hover {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2) !important;
+  }
+  .tuto-background > .tuto-block .buttons__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .tuto-background > .tuto-block .buttons__container a:last-child {
+    margin-left: 20px;
+  }
+
+  .tuto-block {
+    padding: 25px 30px;
+    width: 30%;
+    background: #ffffff;
+    border: 1px solid #e4e4e4;
+    position: absolute;
+    z-index: 1000;
+    display: none;
+  }
+  .tuto-block.tuto-active {
+    display: block;
+  }
+  .tuto-block span:not(.icon-close) {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    width: 100%;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .tuto-block .icon-close {
+    position: absolute;
+    right: 30px;
+    font-size: 12px;
+    color: #d20000;
+    cursor: pointer;
+  }
+  .tuto-block h2 {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    padding: 0 5px;
+    line-height: 26px;
+    color: #222222;
+    margin-bottom: 15px !important;
+  }
+  .tuto-block p {
+    font-size: 22px;
+    color: #222222;
+    line-height: 26px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .tuto-block p strong {
+    font-weight: 700;
+  }
+  .tuto-block p + span {
+    font-size: 14px !important;
+    letter-spacing: 0.6px !important;
+    display: block !important;
+  }
+  .tuto-block a {
+    display: block !important;
+    width: 100% !important;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 30px !important;
+  }
+  .tuto-block a.cta-light--red:hover {
+    border: 1px solid #757575 !important;
+    color: #757575 !important;
+  }
+  .tuto-block a.cta-light--grey:hover {
+    border: 1px solid #d21d00 !important;
+    color: #d21d00 !important;
+  }
+}
+@media (min-width: 1366px) {
+  .tuto-background > .tuto-block {
+    width: 22%;
+  }
+}
+/* ! SIZES
+------------------------- */
+/*$font-root              : rnd( $font-size / 16 * 100% )
+$line-height            : rnd( 16 / $font-size )*/
+main {
+  counter-reset: index;
+}
+main .pop-in__container .confirm-register__container ul {
+  margin-bottom: 20px;
+}
+main .pop-in__container .confirm-register__container ul li {
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 5px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  color: #757575;
+}
+main .pop-in__container .confirm-register__container ul li span {
+  text-decoration: line-through;
+  color: #e4e4e4 !important;
+}
+main .pop-in__container .confirm-register__container ul li:before {
+  width: 100%;
+  content: attr(data-field);
+}
+main .pop-in__container .confirm-register__container .buttons__container {
+  display: flex;
+  flex-direction: column;
+}
+main .pop-in__container .confirm-register__container .buttons__container button + button {
+  margin-top: 10px;
+}
+main .espace-client__wrapper .course__container {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+main .espace-client__wrapper .course__container > div {
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 10%;
+  height: 40px;
+  background-position: center top;
+}
+main .espace-client__wrapper .course__container > div span {
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #d20000;
+  margin: 0 auto;
+}
+main .espace-client__wrapper .course__container > div p {
+  display: none;
+  font-weight: 700;
+}
+main .espace-client__wrapper .course__container > div:not(.active) p {
+  color: #c7c7c7;
+}
+main .espace-client__wrapper .course__container > div.active p {
+  color: #222222;
+}
+main .espace-client__wrapper .course__container > .register.active {
+  background-image: url("../media/img/icon-inscription-active-mobile-v5.png");
+}
+main .espace-client__wrapper .course__container > .summary {
+  background-image: url("../media/img/icon-recapitulatif-mobile-v5.png");
+}
+main .espace-client__wrapper .course__container > .summary.active {
+  background-image: url("../media/img/icon-recapitulatif-active-mobile-v5.png");
+}
+main .espace-client__wrapper .course__container > .payment {
+  background-image: url("../media/img/icon-paiement-mobile-v5.png");
+}
+main .espace-client__wrapper .course__container > .payment.active {
+  background-image: url("../media/img/icon-paiement-active-mobile-v5.png");
+}
+main .espace-client__wrapper .course__container > .confirmation {
+  background-image: url("../media/img/icon-confirmation-mobile-v5.png");
+}
+main .espace-client__wrapper .course__container > .confirmation.active {
+  background-image: url("../media/img/icon-confirmation-active-mobile-v5.png");
+}
+main .espace-client__wrapper .course__container .fill {
+  position: relative;
+  top: -7px;
+  width: 25px;
+  margin: 0 5%;
+}
+main .espace-client__wrapper .course__container .fill.active {
+  border-top: 2px dashed #d21d00;
+}
+main .espace-client__wrapper .course__container .fill:not(.active) {
+  border-top: 2px dashed #c7c7c7;
+}
+main .espace-client__wrapper .message-error__container {
+  border: 1px solid #d21d00;
+  position: relative;
+  background-color: #ffffff;
+}
+main .espace-client__wrapper .message-error__container div {
+  padding: 10px 10px 10px 17%;
+}
+main .espace-client__wrapper .message-error__container div p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 0;
+  color: #d21d00;
+}
+main .espace-client__wrapper .message-error__container:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 13%;
+  height: 100%;
+  background: url("../media/img/icon-warning-large-v5.png") no-repeat center;
+  border-right: 1px solid #d21d00;
+}
+main .espace-client__wrapper .formation-detail__container {
+  margin-top: 20px;
+  border: 1px solid #dedede;
+}
+main .espace-client__wrapper .formation-detail__container .formation__container {
+  padding: 30px 20px;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #dedede;
+}
+main .espace-client__wrapper .formation-detail__container .formation__container .formation-informations__container {
+  padding-bottom: 30px;
+}
+main .espace-client__wrapper .formation-detail__container .formation__container .formation-informations__container a {
+  color: #222222;
+  display: inline-block;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 700;
+}
+main .espace-client__wrapper .formation-detail__container .formation__container .formation-informations__container p {
+  color: #757575;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  margin: 10px 0;
+}
+main .espace-client__wrapper .formation-detail__container .formation__container .formation-informations__container ul li {
+  background: url("../media/img/icon-reference-v5.png") no-repeat left center;
+}
+main .espace-client__wrapper .formation-detail__container .formation__container .formation-informations__container ul li span {
+  color: #757575;
+  font-size: 16px;
+  margin-left: 25px;
+}
+main .espace-client__wrapper .formation-detail__container .formation__container .formation-price-default__container > .price-default__container {
+  padding: 0;
+  border-bottom: none;
+}
+main .espace-client__wrapper .formation-detail__container .formation__container .formation-price-default__container > .price-default__container span {
+  color: #222222;
+}
+main .espace-client__wrapper .formation-detail__container .meal__container {
+  background: url("../media/img/icon-repas-v5.png") no-repeat 35px 65px;
+}
+main .espace-client__wrapper .formation-detail__container .certificate__container {
+  background: url("../media/img/icon-certificat-v5.png") no-repeat 35px 65px;
+}
+main .espace-client__wrapper .formation-detail__container .meal__container, main .espace-client__wrapper .formation-detail__container .certificate__container {
+  padding: 30px 20px;
+  border-bottom: 1px solid #dedede;
+}
+main .espace-client__wrapper .formation-detail__container .meal__container > *, main .espace-client__wrapper .formation-detail__container .certificate__container > * {
+  margin-left: 80px;
+}
+main .espace-client__wrapper .formation-detail__container .meal__container strong, main .espace-client__wrapper .formation-detail__container .certificate__container strong {
+  font-size: 14px;
+  color: #222222;
+}
+main .espace-client__wrapper .formation-detail__container .meal__container p, main .espace-client__wrapper .formation-detail__container .certificate__container p {
+  font-size: 14px;
+  color: #757575;
+  line-height: 21px;
+  margin-bottom: 10px;
+}
+main .espace-client__wrapper .formation-detail__container .price-without-reduction__container, main .espace-client__wrapper .formation-detail__container .price-with-reduction__container, main .espace-client__wrapper .formation-detail__container .price-default__container {
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .espace-client__wrapper .formation-detail__container .price-without-reduction__container p, main .espace-client__wrapper .formation-detail__container .price-with-reduction__container p, main .espace-client__wrapper .formation-detail__container .price-default__container p {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+main .espace-client__wrapper .formation-detail__container .price-without-reduction__container span, main .espace-client__wrapper .formation-detail__container .price-with-reduction__container span, main .espace-client__wrapper .formation-detail__container .price-default__container span {
+  /*&[data-type="ht"]:after {
+      content: 'HT';
+  }
+  &[data-type="ttc"]:after {
+      content: 'TTC';
+  }*/
+}
+main .espace-client__wrapper .formation-detail__container .price-without-reduction__container span strong, main .espace-client__wrapper .formation-detail__container .price-with-reduction__container span strong, main .espace-client__wrapper .formation-detail__container .price-default__container span strong {
+  font-weight: 700;
+  margin-right: 5px;
+}
+main .espace-client__wrapper .formation-detail__container .price-without-reduction__container span strong:after, main .espace-client__wrapper .formation-detail__container .price-with-reduction__container span strong:after, main .espace-client__wrapper .formation-detail__container .price-default__container span strong:after {
+  content: "€";
+  margin-left: 2px;
+}
+main .espace-client__wrapper .formation-detail__container .price-without-reduction__container span:first-of-type, main .espace-client__wrapper .formation-detail__container .price-with-reduction__container span:first-of-type, main .espace-client__wrapper .formation-detail__container .price-default__container span:first-of-type {
+  color: #d21d00;
+  font-size: 30px;
+  font-weight: 200;
+  margin-bottom: -5px;
+}
+main .espace-client__wrapper .formation-detail__container .price-with-reduction__container .price-without-reduction {
+  color: #e4e4e4 !important;
+  text-decoration: line-through !important;
+  font-size: 20px !important;
+}
+main .espace-client__wrapper .formation-detail__container .price-with-reduction__container .price-without-reduction strong {
+  font-weight: normal;
+}
+main .espace-client__wrapper .formation-detail__container .price-with-reduction__container .price-with-reduction {
+  color: #d21d00;
+  font-size: 30px;
+  font-weight: 200;
+  margin-bottom: -5px;
+}
+main .espace-client__wrapper .status__container {
+  padding: 30px 20px;
+  margin-top: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #dedede;
+}
+main .espace-client__wrapper .status__container p {
+  color: #222222;
+  font-weight: 700;
+  font-size: 22px;
+}
+main .espace-client__wrapper .status__container .radios__container {
+  display: flex;
+  flex-direction: column;
+}
+main .espace-client__wrapper .status__container .radios__container .radio__container {
+  margin-bottom: 5px;
+}
+main .espace-client__wrapper .trainees__container, main .espace-client__wrapper .responsable__container {
+  margin-top: 20px;
+  border: 1px solid #e4e4e4;
+}
+main .espace-client__wrapper .trainees__container h3, main .espace-client__wrapper .responsable__container h3 {
+  background-color: #f4f4f4;
+  color: #222222;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 0;
+  padding: 20px 20px;
+}
+main .espace-client__wrapper .trainees__container .trainee__container, main .espace-client__wrapper .responsable__container .trainee__container {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 20px;
+}
+main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container {
+  display: flex;
+  justify-content: space-between;
+}
+main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container h4, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container h4 {
+  font-size: 18px;
+  color: #222222;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container h4:after, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container h4:after {
+  margin-left: 3px;
+  counter-increment: index;
+  content: counter(index);
+}
+main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container a, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container a {
+  font-size: 14px;
+  font-weight: 400;
+}
+main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container a:first-of-type, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container a:first-of-type {
+  color: #757575;
+}
+main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container a:first-of-type span, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container a:first-of-type span {
+  display: none;
+}
+main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container a:last-of-type, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container a:last-of-type {
+  color: #d20000;
+  padding-right: 25px;
+}
+main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container a:last-of-type.reduce, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container a:last-of-type.reduce {
+  background: url("../media/img/icon-minus-v5.png") no-repeat right center;
+}
+main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container a:last-of-type.enlarge, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container a:last-of-type.enlarge {
+  background: url("../media/img/icon-plus-v5.png") no-repeat right center;
+}
+main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container a ~ a, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container a ~ a {
+  margin-left: 20px;
+}
+main .espace-client__wrapper .trainees__container .add-trainee__container, main .espace-client__wrapper .responsable__container .add-trainee__container {
+  padding: 30px 20px;
+}
+main .espace-client__wrapper .trainees__container .add-trainee__container button, main .espace-client__wrapper .responsable__container .add-trainee__container button {
+  width: 100%;
+  font-size: 18px !important;
+}
+main .espace-client__wrapper .trainees__container .add-trainee__container button:hover, main .espace-client__wrapper .responsable__container .add-trainee__container button:hover {
+  border: 1px solid #757575 !important;
+  color: #757575 !important;
+}
+main .espace-client__wrapper .main-trainee__container {
+  margin: 20px 0;
+}
+main .espace-client__wrapper .main-trainee__container:last-child {
+  margin-bottom: 0;
+}
+main .espace-client__wrapper .main-trainee__container .top-main-trainee__container, main .espace-client__wrapper .main-trainee__container .top-main-responsable__container, main .espace-client__wrapper .main-responsable__container .top-main-trainee__container, main .espace-client__wrapper .main-responsable__container .top-main-responsable__container, main .espace-client__wrapper .billing-address__container .top-main-trainee__container, main .espace-client__wrapper .billing-address__container .top-main-responsable__container {
+  margin-bottom: 10px;
+}
+main .espace-client__wrapper .main-trainee__container .top-main-trainee__container p, main .espace-client__wrapper .main-trainee__container .top-main-responsable__container p, main .espace-client__wrapper .main-responsable__container .top-main-trainee__container p, main .espace-client__wrapper .main-responsable__container .top-main-responsable__container p, main .espace-client__wrapper .billing-address__container .top-main-trainee__container p, main .espace-client__wrapper .billing-address__container .top-main-responsable__container p {
+  color: #737a80;
+  font-size: 15px;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 5px;
+}
+main .espace-client__wrapper .main-trainee__container .top-main-trainee__container a, main .espace-client__wrapper .main-trainee__container .top-main-responsable__container a, main .espace-client__wrapper .main-responsable__container .top-main-trainee__container a, main .espace-client__wrapper .main-responsable__container .top-main-responsable__container a, main .espace-client__wrapper .billing-address__container .top-main-trainee__container a, main .espace-client__wrapper .billing-address__container .top-main-responsable__container a {
+  font-size: 14px;
+  color: #d21d00;
+  text-decoration: underline;
+}
+main .espace-client__wrapper .main-trainee__container .row__container > p, main .espace-client__wrapper .main-responsable__container .row__container > p, main .espace-client__wrapper .billing-address__container .row__container > p {
+  font-size: 14px;
+}
+main .espace-client__wrapper .main-trainee__container .row__container > div, main .espace-client__wrapper .main-responsable__container .row__container > div, main .espace-client__wrapper .billing-address__container .row__container > div {
+  margin-bottom: 10px;
+}
+main .espace-client__wrapper .main-trainee__container .row__container .select__wrapper:after, main .espace-client__wrapper .main-responsable__container .row__container .select__wrapper:after, main .espace-client__wrapper .billing-address__container .row__container .select__wrapper:after {
+  top: 70%;
+}
+main .espace-client__wrapper .main-trainee__container > p.information, main .espace-client__wrapper .main-responsable__container > p.information, main .espace-client__wrapper .billing-address__container > p.information {
+  background: url("../media/img/icon-warning-v5.png") no-repeat;
+  padding-left: 30px;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+main .espace-client__wrapper .main-trainee__container > p.information ~ div, main .espace-client__wrapper .main-responsable__container > p.information ~ div, main .espace-client__wrapper .billing-address__container > p.information ~ div {
+  margin-top: 15px;
+}
+main .espace-client__wrapper .responsable__container {
+  margin-top: 20px;
+  border: 1px solid #e4e4e4;
+}
+main .espace-client__wrapper .responsable__container h3 {
+  padding: 20px 20px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #222222;
+  background-color: #f4f4f4;
+}
+main .espace-client__wrapper .responsable__container h3 p {
+  color: #757575;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+main .espace-client__wrapper .responsable__container .main-responsable__container {
+  padding: 20px;
+}
+main .espace-client__wrapper .responsable__container .main-responsable__container:last-child {
+  padding-top: 0;
+}
+main .espace-client__wrapper .order__container {
+  margin-top: 20px;
+  border: 1px solid #e4e4e4;
+  padding: 30px 20px;
+}
+main .espace-client__wrapper .order__container > div:not(:last-child) {
+  margin-bottom: 20px;
+}
+main .espace-client__wrapper .rgpd__container {
+  margin-top: 20px;
+}
+main .espace-client__wrapper .rgpd__container p {
+  line-height: 21px;
+  letter-spacing: 0.6px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #757575;
+  margin-bottom: 5px;
+}
+main .espace-client__wrapper .terms-and-conditions__container {
+  margin-top: 5px;
+}
+main .espace-client__wrapper .terms-and-conditions__container > label {
+  display: flex;
+}
+main .espace-client__wrapper .buttons__container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+main .espace-client__wrapper .buttons__container button {
+  font-size: 18px !important;
+}
+main .espace-client__wrapper .buttons__container button:first-child:hover {
+  border: 1px solid #757575 !important;
+  color: #757575 !important;
+}
+main .espace-client__wrapper .buttons__container button + button {
+  margin-top: 10px;
+}
+
+@media (min-width: 980px) {
+  main .pop-in__container .confirm-register__container {
+    width: 70% !important;
+  }
+  main .pop-in__container .confirm-register__container ul li {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  main .pop-in__container .confirm-register__container ul li:before {
+    width: 20%;
+  }
+  main .pop-in__container .confirm-register__container .buttons__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  main .pop-in__container .confirm-register__container .buttons__container button + button {
+    margin-top: 0;
+  }
+  main .espace-client__wrapper .course__container {
+    padding: 20px 50px;
+  }
+  main .espace-client__wrapper .course__container > div {
+    height: 90px;
+  }
+  main .espace-client__wrapper .course__container > div p {
+    margin-bottom: 5px;
+    display: block;
+  }
+  main .espace-client__wrapper .course__container > .register.active {
+    background-image: url("../media/img/icon-inscription-active-v5.png");
+  }
+  main .espace-client__wrapper .course__container > .summary {
+    background-image: url("../media/img/icon-recapitulatif-v5.png");
+  }
+  main .espace-client__wrapper .course__container > .summary.active {
+    background-image: url("../media/img/icon-recapitulatif-active-v5.png");
+  }
+  main .espace-client__wrapper .course__container > .payment {
+    background-image: url("../media/img/icon-paiement-v5.png");
+  }
+  main .espace-client__wrapper .course__container > .payment.active {
+    background-image: url("../media/img/icon-paiement-active-v5.png");
+  }
+  main .espace-client__wrapper .course__container > .confirmation {
+    background-image: url("../media/img/icon-confirmation-v5.png");
+  }
+  main .espace-client__wrapper .course__container > .confirmation.active {
+    background-image: url("../media/img/icon-confirmation-active-v5.png");
+  }
+  main .espace-client__wrapper .course__container .fill {
+    top: -25px;
+    width: 160px;
+  }
+  main .espace-client__wrapper .message-error__container {
+    display: flex;
+    align-items: center;
+  }
+  main .espace-client__wrapper .message-error__container:before {
+    width: 65px;
+  }
+  main .espace-client__wrapper .message-error__container div {
+    padding: 20px 20px 20px 85px;
+  }
+  main .espace-client__wrapper .formation-detail__container {
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  main .espace-client__wrapper .formation-detail__container .formation__container {
+    padding: 30px 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  main .espace-client__wrapper .formation-detail__container .formation__container .formation-informations__container {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  main .espace-client__wrapper .formation-detail__container .formation__container .formation-price-default__container {
+    padding-top: 0;
+  }
+  main .espace-client__wrapper .formation-detail__container .options__container {
+    width: 75%;
+  }
+  main .espace-client__wrapper .formation-detail__container .options__container .meal__container, main .espace-client__wrapper .formation-detail__container .options__container .certificate__container {
+    border-bottom: none;
+    padding: 20px 50px;
+    background-position: 70px 50px;
+  }
+  main .espace-client__wrapper .formation-detail__container .prices__container {
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #dedede;
+  }
+  main .espace-client__wrapper .status__container {
+    padding: 30px 60px;
+    margin-top: 60px;
+    background-color: transparent;
+  }
+  main .espace-client__wrapper .status__container .radios__container {
+    flex-direction: row;
+  }
+  main .espace-client__wrapper .trainees__container, main .espace-client__wrapper .responsable__container {
+    margin-top: 60px;
+  }
+  main .espace-client__wrapper .trainees__container h3, main .espace-client__wrapper .responsable__container h3 {
+    padding-left: 60px;
+  }
+  main .espace-client__wrapper .trainees__container .main-trainee__container, main .espace-client__wrapper .trainees__container .main-responsable__container, main .espace-client__wrapper .responsable__container .main-trainee__container, main .espace-client__wrapper .responsable__container .main-responsable__container {
+    margin-top: 10px;
+  }
+  main .espace-client__wrapper .trainees__container .main-trainee__container .top-main-trainee__container, main .espace-client__wrapper .trainees__container .main-trainee__container .top-main-responsable__container, main .espace-client__wrapper .trainees__container .main-responsable__container .top-main-trainee__container, main .espace-client__wrapper .trainees__container .main-responsable__container .top-main-responsable__container, main .espace-client__wrapper .responsable__container .main-trainee__container .top-main-trainee__container, main .espace-client__wrapper .responsable__container .main-trainee__container .top-main-responsable__container, main .espace-client__wrapper .responsable__container .main-responsable__container .top-main-trainee__container, main .espace-client__wrapper .responsable__container .main-responsable__container .top-main-responsable__container {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+  }
+  main .espace-client__wrapper .trainees__container .main-trainee__container .top-main-trainee__container p:before, main .espace-client__wrapper .trainees__container .main-trainee__container .top-main-responsable__container p:before, main .espace-client__wrapper .trainees__container .main-responsable__container .top-main-trainee__container p:before, main .espace-client__wrapper .trainees__container .main-responsable__container .top-main-responsable__container p:before, main .espace-client__wrapper .responsable__container .main-trainee__container .top-main-trainee__container p:before, main .espace-client__wrapper .responsable__container .main-trainee__container .top-main-responsable__container p:before, main .espace-client__wrapper .responsable__container .main-responsable__container .top-main-trainee__container p:before, main .espace-client__wrapper .responsable__container .main-responsable__container .top-main-responsable__container p:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    top: 6px;
+    left: -25px;
+    position: absolute;
+    background: url("../media/img/icon-arrow-grey-v5.png") no-repeat center;
+  }
+  main .espace-client__wrapper .trainees__container .trainee__container, main .espace-client__wrapper .responsable__container .trainee__container {
+    padding: 30px 60px;
+  }
+  main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container a:first-child span, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container a:first-child span {
+    display: inline;
+  }
+  main .espace-client__wrapper .trainees__container .trainee__container .header-trainee__container a ~ a, main .espace-client__wrapper .responsable__container .trainee__container .header-trainee__container a ~ a {
+    margin-left: 70px;
+  }
+  main .espace-client__wrapper .trainees__container .trainee__container .main-trainee__container:last-of-type, main .espace-client__wrapper .responsable__container .trainee__container .main-trainee__container:last-of-type {
+    margin-top: 30px;
+    margin-bottom: 5px;
+  }
+  main .espace-client__wrapper .trainees__container .trainee__container > p, main .espace-client__wrapper .responsable__container .trainee__container > p {
+    margin-bottom: 0;
+  }
+  main .espace-client__wrapper .trainees__container .main-trainee__container .row__container, main .espace-client__wrapper .trainees__container .main-responsable__container .row__container, main .espace-client__wrapper .responsable__container .main-trainee__container .row__container, main .espace-client__wrapper .responsable__container .main-responsable__container .row__container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  main .espace-client__wrapper .trainees__container .main-trainee__container .row__container > div, main .espace-client__wrapper .trainees__container .main-responsable__container .row__container > div, main .espace-client__wrapper .responsable__container .main-trainee__container .row__container > div, main .espace-client__wrapper .responsable__container .main-responsable__container .row__container > div {
+    margin-bottom: 0;
+  }
+  main .espace-client__wrapper .trainees__container .main-trainee__container .row__container > div:not(.radios__wrapper), main .espace-client__wrapper .trainees__container .main-responsable__container .row__container > div:not(.radios__wrapper), main .espace-client__wrapper .responsable__container .main-trainee__container .row__container > div:not(.radios__wrapper), main .espace-client__wrapper .responsable__container .main-responsable__container .row__container > div:not(.radios__wrapper) {
+    width: 32%;
+    margin-right: calc((4% / 2));
+  }
+  main .espace-client__wrapper .trainees__container .main-trainee__container .row__container > div:last-child, main .espace-client__wrapper .trainees__container .main-responsable__container .row__container > div:last-child, main .espace-client__wrapper .responsable__container .main-trainee__container .row__container > div:last-child, main .espace-client__wrapper .responsable__container .main-responsable__container .row__container > div:last-child {
+    margin-right: 0;
+  }
+  main .espace-client__wrapper .trainees__container .add-trainee__container, main .espace-client__wrapper .responsable__container .add-trainee__container {
+    text-align: center;
+  }
+  main .espace-client__wrapper .trainees__container .add-trainee__container button, main .espace-client__wrapper .responsable__container .add-trainee__container button {
+    display: inline-block;
+    width: 30%;
+  }
+  main .espace-client__wrapper .responsable__container {
+    margin-top: 60px;
+  }
+  main .espace-client__wrapper .responsable__container h3 {
+    padding: 30px 60px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  main .espace-client__wrapper .responsable__container h3 p {
+    margin-top: 0;
+  }
+  main .espace-client__wrapper .responsable__container .main-responsable__container {
+    padding: 30px 60px 0;
+    margin-top: 0;
+  }
+  main .espace-client__wrapper .responsable__container .main-responsable__container:last-child {
+    padding-bottom: 30px;
+  }
+  main .espace-client__wrapper .responsable__container .main-responsable__container .top-main-responsable__container {
+    margin-top: 0;
+  }
+  main .espace-client__wrapper .order__container {
+    padding: 30px 60px;
+    margin-top: 60px;
+    display: flex;
+  }
+  main .espace-client__wrapper .order__container > div {
+    width: 32%;
+    margin-bottom: 0 !important;
+    margin-right: calc((4% / 2));
+  }
+  main .espace-client__wrapper .buttons__container {
+    margin-top: 40px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  main .espace-client__wrapper .buttons__container button {
+    width: 29%;
+    font-size: 18px;
+  }
+}
+/* ! SIZES
+------------------------- */
+/*$font-root              : rnd( $font-size / 16 * 100% )
+$line-height            : rnd( 16 / $font-size )*/
+main .actions__container {
+  margin-bottom: 20px;
+}
+main .actions__container .left__actions {
+  display: none;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+main .actions__container .left__actions a {
+  width: 48%;
+}
+main .actions__container .left__actions a.is-inactive {
+  opacity: 0.4;
+}
+main .actions__container .left__actions a:not(.is-inactive) {
+  cursor: pointer !important;
+}
+main .actions__container .left__actions a:not(.is-inactive).cta-light--red:hover {
+  border: 1px solid #757575 !important;
+  color: #757575 !important;
+}
+main .actions__container .left__actions a:not(.is-inactive).cta-light--grey:hover {
+  border: 1px solid #d21d00 !important;
+  color: #d21d00 !important;
+}
+main .actions__container .right__actions a {
+  border-radius: 5px;
+  display: block;
+  border: 1px solid #e4e4e4;
+  padding: 10px 20px;
+  font-size: 14px;
+  transition: 125ms ease-out;
+}
+main .actions__container .right__actions a:hover {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2) !important;
+}
+main .actions__container .right__actions a span {
+  display: block;
+  background: url("../media/img/icon-download-selection-v5.png") no-repeat 100% 50%;
+}
+main .selections__container .selection {
+  position: relative;
+  background: #f4f4f4;
+  margin-bottom: 10px;
+  border: 1px solid #dedede;
+  padding: 30px 20px;
+}
+main .selections__container .selection .checkbox__container {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+}
+main .selections__container .selection .close {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  width: 17px;
+  height: 17px;
+  display: block;
+  cursor: pointer;
+  background: url("../media/img/icon-close-v5.png");
+}
+main .selections__container .selection > a {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222222;
+  display: inline-block;
+  margin-top: 30px;
+}
+main .selections__container .selection ul {
+  display: flex;
+  margin: 20px 0;
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 20px;
+}
+main .selections__container .selection ul li {
+  font-size: 16px;
+  color: #757575;
+  margin-right: 20px;
+}
+main .selections__container .selection ul li span {
+  margin-left: 25px;
+}
+main .selections__container .selection ul li.duration {
+  background: url("../media/img/icon-duration-v5.png") no-repeat left center;
+}
+main .selections__container .selection ul li.reference {
+  background: url("../media/img/icon-reference-v5.png") no-repeat left center;
+}
+main .selections__container .selection form {
+  display: flex;
+  flex-direction: column;
+}
+main .selections__container .selection form select {
+  border: 1px solid #c7c7c7;
+}
+main .selections__container .selection form .select__wrapper {
+  margin-bottom: 20px;
+}
+main .selections__container .selection form .select__wrapper:after {
+  top: 70%;
+}
+
+@media (min-width: 980px) {
+  main .actions__container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  main .actions__container .left__actions {
+    display: flex;
+    position: relative;
+  }
+  main .actions__container .left__actions a {
+    display: block;
+    width: auto;
+    margin-right: 20px;
+    background: #ffffff;
+  }
+  main .actions__container .left__actions a.tuto-active {
+    position: relative;
+    z-index: 1000;
+    opacity: 1 !important;
+    pointer-events: none !important;
+  }
+  main .actions__container .left__actions .btn {
+    padding: 0 15px;
+  }
+  main .actions__container .left__actions .tuto-block {
+    position: absolute;
+    width: 135%;
+    top: calc(100% + 20px);
+    pointer-events: all;
+  }
+  main .actions__container .left__actions .tuto-block:last-child {
+    left: 57%;
+  }
+  main .actions__container .right__actions {
+    width: 36%;
+  }
+  main .actions__container .right__actions a span strong br {
+    display: none;
+  }
+  main .selections__container {
+    margin-bottom: 50px;
+  }
+  main .selections__container .selection {
+    padding: 20px 60px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  main .selections__container .selection .checkbox__container span {
+    top: -5px;
+  }
+  main .selections__container .selection > a {
+    margin-top: 0;
+  }
+  main .selections__container .selection form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  main .selections__container .selection form .select__wrapper {
+    display: flex;
+    align-items: center;
+    width: 68%;
+    margin-bottom: 0;
+  }
+  main .selections__container .selection form .select__wrapper label {
+    width: 30%;
+  }
+  main .selections__container .selection form .select__wrapper select {
+    margin: 0;
+    padding-right: 35px;
+  }
+  main .selections__container .selection form .select__wrapper:after {
+    top: 53%;
+  }
+  main .selections__container .selection form a {
+    width: 28%;
+  }
+  main .selections__container .selection form a.tuto-active {
+    opacity: 1 !important;
+    position: relative;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  main .selections__container .selection .close {
+    right: 60px;
+  }
+  main .selections__container .selection .tuto-block {
+    right: 60px;
+    top: -90%;
+    pointer-events: all;
+  }
+}
+/* ! SIZES
+------------------------- */
+/*$font-root              : rnd( $font-size / 16 * 100% )
+$line-height            : rnd( 16 / $font-size )*/
+main .espace-client__wrapper .links__container {
+  margin-bottom: 30px;
+  border: 1px solid #e4e4e4;
+}
+main .espace-client__wrapper .links__container a {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #c7c7c7;
+  padding: 10px 0;
+}
+main .espace-client__wrapper .links__container a:last-child {
+  border-left: 1px solid #e4e4e4;
+}
+main .espace-client__wrapper .links__container a.active {
+  background: #ffffff;
+  color: #d21d00;
+}
+main .espace-client__wrapper .connection__container, main .espace-client__wrapper .recovery__container, main .espace-client__wrapper .legal-notice__container {
+  background-color: #ffffff;
+  border: 1px solid #e4e4e4;
+}
+main .espace-client__wrapper .connection__container h3, main .espace-client__wrapper .recovery__container h3, main .espace-client__wrapper .legal-notice__container h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222222;
+  line-height: 26px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+main .espace-client__wrapper .connection__container p, main .espace-client__wrapper .recovery__container p, main .espace-client__wrapper .legal-notice__container p {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  color: #757575;
+  text-align: center;
+  margin-top: 10px;
+}
+main .espace-client__wrapper .connection__container p span, main .espace-client__wrapper .recovery__container p span, main .espace-client__wrapper .legal-notice__container p span {
+  font-weight: 400;
+}
+main .espace-client__wrapper .connection__container p span.valid, main .espace-client__wrapper .recovery__container p span.valid, main .espace-client__wrapper .legal-notice__container p span.valid {
+  color: #00cc00;
+}
+main .espace-client__wrapper .connection__container .form__container, main .espace-client__wrapper .recovery__container .form__container, main .espace-client__wrapper .legal-notice__container .form__container {
+  padding: 30px 20px;
+  border-bottom: 1px solid #e4e4e4;
+}
+main .espace-client__wrapper .connection__container .form__container div + div, main .espace-client__wrapper .recovery__container .form__container div + div, main .espace-client__wrapper .legal-notice__container .form__container div + div {
+  margin-top: 20px;
+}
+main .espace-client__wrapper .connection__container .form__container .eye-password, main .espace-client__wrapper .recovery__container .form__container .eye-password, main .espace-client__wrapper .legal-notice__container .form__container .eye-password {
+  position: absolute;
+  right: 5%;
+  top: 65%;
+  background: url("../media/img/icon-eye-v5.png") no-repeat center;
+  width: 19px;
+  height: 12px;
+  cursor: pointer;
+}
+main .espace-client__wrapper .connection__container .form__container .eye-password.active, main .espace-client__wrapper .recovery__container .form__container .eye-password.active, main .espace-client__wrapper .legal-notice__container .form__container .eye-password.active {
+  background-image: url("../media/img/icon-eye-active-v5.png");
+}
+main .espace-client__wrapper .connection__container .form__container a, main .espace-client__wrapper .recovery__container .form__container a, main .espace-client__wrapper .legal-notice__container .form__container a {
+  display: block;
+  margin: 20px 0 30px;
+  color: #d21d00;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  font-weight: 600;
+}
+main .espace-client__wrapper .connection__container .form__container button, main .espace-client__wrapper .recovery__container .form__container button, main .espace-client__wrapper .legal-notice__container .form__container button {
+  width: 100%;
+}
+main .espace-client__wrapper .connection__container .form__container div + button, main .espace-client__wrapper .recovery__container .form__container div + button, main .espace-client__wrapper .legal-notice__container .form__container div + button {
+  margin-top: 20px;
+}
+main .espace-client__wrapper .connection__container .form__container + .form__container p, main .espace-client__wrapper .recovery__container .form__container + .form__container p, main .espace-client__wrapper .legal-notice__container .form__container + .form__container p {
+  display: none;
+}
+main .espace-client__wrapper .connection__container .text__container, main .espace-client__wrapper .recovery__container .text__container, main .espace-client__wrapper .legal-notice__container .text__container {
+  padding: 30px 20px;
+}
+main .espace-client__wrapper .connection__container .text__container ul li, main .espace-client__wrapper .recovery__container .text__container ul li, main .espace-client__wrapper .legal-notice__container .text__container ul li {
+  font-size: 14px;
+  font-weight: 400;
+  color: #757575;
+  letter-spacing: 0.6px;
+  line-height: 21px;
+  display: flex;
+  margin-bottom: 4px;
+}
+main .espace-client__wrapper .connection__container .text__container ul li:before, main .espace-client__wrapper .recovery__container .text__container ul li:before, main .espace-client__wrapper .legal-notice__container .text__container ul li:before {
+  content: "•";
+  color: #d21d00;
+  display: block;
+  margin-right: 15px;
+}
+main .espace-client__wrapper .legal-notice__container {
+  background: #ffffff;
+  margin-top: 30px;
+}
+main .espace-client__wrapper .legal-notice__container > * {
+  padding: 30px 20px;
+}
+main .espace-client__wrapper .legal-notice__container > * p {
+  margin-top: 0;
+  text-align: left;
+  line-height: 21px;
+  letter-spacing: 0.6px;
+  font-weight: 400;
+}
+main .espace-client__wrapper .legal-notice__container .top__container {
+  border-bottom: 1px solid #e4e4e4;
+}
+main .espace-client__wrapper .legal-notice__container .top__container a:hover {
+  border: 1px solid #d21d00 !important;
+  color: #d21d00 !important;
+}
+main .espace-client__wrapper .legal-notice__container .bottom__container .checkbox__container label {
+  border-radius: 0;
+}
+main .espace-client__wrapper .icon-email {
+  background-image: url("../media/img/icon-espaceClient-email-v5.png") !important;
+}
+main .espace-client__wrapper .icon-chatbot {
+  background-image: url("../media/img/icon-espaceClient-chatbot-v5.png") !important;
+}
+main .espace-client__wrapper .icon-phone {
+  background-image: url("../media/img/icon-espaceClient-phone-v5.png") !important;
+}
+
+@media (min-width: 980px) {
+  main .espace-client__wrapper .connection__wrapper {
+    width: 58%;
+  }
+  main .espace-client__wrapper .recovery__wrapper {
+    width: 45%;
+  }
+  main .espace-client__wrapper .recovery__wrapper .recovery__container {
+    width: 65%;
+    margin: 0 auto;
+  }
+  main .espace-client__wrapper .links__container {
+    width: 50%;
+  }
+  main .espace-client__wrapper .connection__container {
+    display: flex;
+  }
+  main .espace-client__wrapper .connection__container > * {
+    width: 50%;
+  }
+  main .espace-client__wrapper .connection__container .form__container {
+    border-bottom: none;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+  main .espace-client__wrapper .connection__container .form__container + .form__container {
+    border-left: 1px solid #e4e4e4;
+  }
+  main .espace-client__wrapper .connection__container .form__container + .form__container #form-email, main .espace-client__wrapper .connection__container .form__container + .form__container #form-password {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  main .espace-client__wrapper .connection__container .form__container + .form__container p {
+    display: block;
+  }
+  main .espace-client__wrapper .connection__container .text__container {
+    padding-right: 40px;
+    padding-left: 40px;
+    border-left: 1px solid #e4e4e4;
+  }
+  main .espace-client__wrapper .legal-notice__container > * {
+    padding: 30px 40px;
+  }
+  main .espace-client__wrapper .legal-notice__container .top__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  main .espace-client__wrapper .legal-notice__container .top__container p {
+    width: 60%;
+  }
+  main .espace-client__wrapper .legal-notice__container .bottom__container .checkbox__container {
+    position: relative;
+  }
+  main .espace-client__wrapper .legal-notice__container .bottom__container .checkbox__container label {
+    right: 0;
+    padding-left: 0;
+  }
+  main .espace-client__wrapper .legal-notice__container .bottom__container .checkbox__container span {
+    left: 100%;
+    margin-left: 15px;
+  }
+}
+/* ! SIZES
+------------------------- */
+/*$font-root              : rnd( $font-size / 16 * 100% )
+$line-height            : rnd( 16 / $font-size )*/
+main .espace-client__wrapper {
+  padding: 30px 0;
+  margin: 0;
+}
+main .espace-client__wrapper .block__container .modal-block {
+  display: none;
+}
+main .espace-client__wrapper .block__container .block {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e4e4e4;
+  margin-bottom: 15px;
+}
+main .espace-client__wrapper .block__container .block > img {
+  width: 100%;
+}
+main .espace-client__wrapper .block__container .block h2 {
+  font-size: 22px;
+  font-weight: 700;
+  position: relative;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 20px;
+  margin-bottom: 0;
+}
+main .espace-client__wrapper .block__container .my-space__block > img {
+  display: none;
+}
+main .espace-client__wrapper .block__container .my-space__block h2:before {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background-repeat: no-repeat;
+  margin-right: 30px;
+}
+main .espace-client__wrapper .block__container .my-space__block h2.title-register {
+  color: #b2ca49;
+}
+main .espace-client__wrapper .block__container .my-space__block h2.title-register:before {
+  background-image: url("../media/img/icon-espaceClient-inscriptions-v5.png");
+}
+main .espace-client__wrapper .block__container .my-space__block h2.title-projects {
+  color: #00bfc4;
+}
+main .espace-client__wrapper .block__container .my-space__block h2.title-projects:before {
+  background-image: url("../media/img/icon-espaceClient-projets-v5.png");
+}
+main .espace-client__wrapper .block__container .my-space__block h2.title-profile {
+  color: #ef8c2f;
+}
+main .espace-client__wrapper .block__container .my-space__block h2.title-profile:before {
+  background-image: url("../media/img/icon-espaceClient-profil-v5.png");
+}
+main .espace-client__wrapper .block__container .my-space__block h2 span {
+  margin-left: 40px;
+}
+main .espace-client__wrapper .block__container .my-space__block ul li {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #757575 !important;
+  position: relative;
+  font-weight: 400;
+  padding: 15px 20px;
+}
+main .espace-client__wrapper .block__container .my-space__block ul li:hover {
+  background: #f4f4f4;
+}
+main .espace-client__wrapper .block__container .my-space__block ul li a {
+  display: block;
+  width: 100%;
+  background: url("../media/img/icon-arrow-right-v5.png") no-repeat 100% 50%;
+}
+main .services__wrapper, main .help__wrapper {
+  background-color: #ffffff;
+  padding: 40px 0;
+}
+main .services__wrapper .wrap, main .help__wrapper .wrap {
+  width: 85%;
+}
+main .services__wrapper .wrap .services__container, main .services__wrapper .wrap .aids__container, main .help__wrapper .wrap .services__container, main .help__wrapper .wrap .aids__container {
+  margin-top: 30px;
+  display: flex;
+  transition: all 0.5s;
+}
+main .services__wrapper .wrap .services__container .service__container, main .services__wrapper .wrap .services__container .help__container, main .services__wrapper .wrap .aids__container .service__container, main .services__wrapper .wrap .aids__container .help__container, main .help__wrapper .wrap .services__container .service__container, main .help__wrapper .wrap .services__container .help__container, main .help__wrapper .wrap .aids__container .service__container, main .help__wrapper .wrap .aids__container .help__container {
+  padding-top: 40px;
+  height: 100%;
+}
+main .services__wrapper .wrap .services__container .service__container .service, main .services__wrapper .wrap .services__container .service__container .help, main .services__wrapper .wrap .services__container .help__container .service, main .services__wrapper .wrap .services__container .help__container .help, main .services__wrapper .wrap .aids__container .service__container .service, main .services__wrapper .wrap .aids__container .service__container .help, main .services__wrapper .wrap .aids__container .help__container .service, main .services__wrapper .wrap .aids__container .help__container .help, main .help__wrapper .wrap .services__container .service__container .service, main .help__wrapper .wrap .services__container .service__container .help, main .help__wrapper .wrap .services__container .help__container .service, main .help__wrapper .wrap .services__container .help__container .help, main .help__wrapper .wrap .aids__container .service__container .service, main .help__wrapper .wrap .aids__container .service__container .help, main .help__wrapper .wrap .aids__container .help__container .service, main .help__wrapper .wrap .aids__container .help__container .help {
+  min-width: 100%;
+  height: 100%;
+  background: #f4f4f4;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 50px;
+  padding: 30px 20px;
+}
+main .services__wrapper .wrap .services__container .service__container .service h2, main .services__wrapper .wrap .services__container .service__container .help h2, main .services__wrapper .wrap .services__container .help__container .service h2, main .services__wrapper .wrap .services__container .help__container .help h2, main .services__wrapper .wrap .aids__container .service__container .service h2, main .services__wrapper .wrap .aids__container .service__container .help h2, main .services__wrapper .wrap .aids__container .help__container .service h2, main .services__wrapper .wrap .aids__container .help__container .help h2, main .help__wrapper .wrap .services__container .service__container .service h2, main .help__wrapper .wrap .services__container .service__container .help h2, main .help__wrapper .wrap .services__container .help__container .service h2, main .help__wrapper .wrap .services__container .help__container .help h2, main .help__wrapper .wrap .aids__container .service__container .service h2, main .help__wrapper .wrap .aids__container .service__container .help h2, main .help__wrapper .wrap .aids__container .help__container .service h2, main .help__wrapper .wrap .aids__container .help__container .help h2 {
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+main .services__wrapper .wrap .services__container .service__container .service p, main .services__wrapper .wrap .services__container .service__container .help p, main .services__wrapper .wrap .services__container .help__container .service p, main .services__wrapper .wrap .services__container .help__container .help p, main .services__wrapper .wrap .aids__container .service__container .service p, main .services__wrapper .wrap .aids__container .service__container .help p, main .services__wrapper .wrap .aids__container .help__container .service p, main .services__wrapper .wrap .aids__container .help__container .help p, main .help__wrapper .wrap .services__container .service__container .service p, main .help__wrapper .wrap .services__container .service__container .help p, main .help__wrapper .wrap .services__container .help__container .service p, main .help__wrapper .wrap .services__container .help__container .help p, main .help__wrapper .wrap .aids__container .service__container .service p, main .help__wrapper .wrap .aids__container .service__container .help p, main .help__wrapper .wrap .aids__container .help__container .service p, main .help__wrapper .wrap .aids__container .help__container .help p {
+  font-size: 16px;
+  color: #757575;
+  font-weight: 400;
+  line-height: 26px;
+  margin: 0;
+  text-align: center;
+}
+main .services__wrapper .wrap .services__container .service__container .service a:hover, main .services__wrapper .wrap .services__container .service__container .help a:hover, main .services__wrapper .wrap .services__container .help__container .service a:hover, main .services__wrapper .wrap .services__container .help__container .help a:hover, main .services__wrapper .wrap .aids__container .service__container .service a:hover, main .services__wrapper .wrap .aids__container .service__container .help a:hover, main .services__wrapper .wrap .aids__container .help__container .service a:hover, main .services__wrapper .wrap .aids__container .help__container .help a:hover, main .help__wrapper .wrap .services__container .service__container .service a:hover, main .help__wrapper .wrap .services__container .service__container .help a:hover, main .help__wrapper .wrap .services__container .help__container .service a:hover, main .help__wrapper .wrap .services__container .help__container .help a:hover, main .help__wrapper .wrap .aids__container .service__container .service a:hover, main .help__wrapper .wrap .aids__container .service__container .help a:hover, main .help__wrapper .wrap .aids__container .help__container .service a:hover, main .help__wrapper .wrap .aids__container .help__container .help a:hover {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+main .services__wrapper .wrap .services__container .service__container .service span, main .services__wrapper .wrap .services__container .service__container .help span, main .services__wrapper .wrap .services__container .help__container .service span, main .services__wrapper .wrap .services__container .help__container .help span, main .services__wrapper .wrap .aids__container .service__container .service span, main .services__wrapper .wrap .aids__container .service__container .help span, main .services__wrapper .wrap .aids__container .help__container .service span, main .services__wrapper .wrap .aids__container .help__container .help span, main .help__wrapper .wrap .services__container .service__container .service span, main .help__wrapper .wrap .services__container .service__container .help span, main .help__wrapper .wrap .services__container .help__container .service span, main .help__wrapper .wrap .services__container .help__container .help span, main .help__wrapper .wrap .aids__container .service__container .service span, main .help__wrapper .wrap .aids__container .service__container .help span, main .help__wrapper .wrap .aids__container .help__container .service span, main .help__wrapper .wrap .aids__container .help__container .help span {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: inline-block;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid #f4f4f4;
+  top: -35px;
+  left: calc(50% - 35px);
+}
+main .services__wrapper .wrap .services__container .service__container .service span.icon-financement, main .services__wrapper .wrap .services__container .service__container .help span.icon-financement, main .services__wrapper .wrap .services__container .help__container .service span.icon-financement, main .services__wrapper .wrap .services__container .help__container .help span.icon-financement, main .services__wrapper .wrap .aids__container .service__container .service span.icon-financement, main .services__wrapper .wrap .aids__container .service__container .help span.icon-financement, main .services__wrapper .wrap .aids__container .help__container .service span.icon-financement, main .services__wrapper .wrap .aids__container .help__container .help span.icon-financement, main .help__wrapper .wrap .services__container .service__container .service span.icon-financement, main .help__wrapper .wrap .services__container .service__container .help span.icon-financement, main .help__wrapper .wrap .services__container .help__container .service span.icon-financement, main .help__wrapper .wrap .services__container .help__container .help span.icon-financement, main .help__wrapper .wrap .aids__container .service__container .service span.icon-financement, main .help__wrapper .wrap .aids__container .service__container .help span.icon-financement, main .help__wrapper .wrap .aids__container .help__container .service span.icon-financement, main .help__wrapper .wrap .aids__container .help__container .help span.icon-financement {
+  background-image: url("../media/img/icon-espaceClient-financement-v5.png");
+}
+main .services__wrapper .wrap .services__container .service__container .service span.icon-blogs, main .services__wrapper .wrap .services__container .service__container .help span.icon-blogs, main .services__wrapper .wrap .services__container .help__container .service span.icon-blogs, main .services__wrapper .wrap .services__container .help__container .help span.icon-blogs, main .services__wrapper .wrap .aids__container .service__container .service span.icon-blogs, main .services__wrapper .wrap .aids__container .service__container .help span.icon-blogs, main .services__wrapper .wrap .aids__container .help__container .service span.icon-blogs, main .services__wrapper .wrap .aids__container .help__container .help span.icon-blogs, main .help__wrapper .wrap .services__container .service__container .service span.icon-blogs, main .help__wrapper .wrap .services__container .service__container .help span.icon-blogs, main .help__wrapper .wrap .services__container .help__container .service span.icon-blogs, main .help__wrapper .wrap .services__container .help__container .help span.icon-blogs, main .help__wrapper .wrap .aids__container .service__container .service span.icon-blogs, main .help__wrapper .wrap .aids__container .service__container .help span.icon-blogs, main .help__wrapper .wrap .aids__container .help__container .service span.icon-blogs, main .help__wrapper .wrap .aids__container .help__container .help span.icon-blogs {
+  background-image: url("../media/img/icon-espaceClient-blogs-v5.png");
+}
+main .services__wrapper .wrap .services__container .service__container .service span.icon-newsletter, main .services__wrapper .wrap .services__container .service__container .help span.icon-newsletter, main .services__wrapper .wrap .services__container .help__container .service span.icon-newsletter, main .services__wrapper .wrap .services__container .help__container .help span.icon-newsletter, main .services__wrapper .wrap .aids__container .service__container .service span.icon-newsletter, main .services__wrapper .wrap .aids__container .service__container .help span.icon-newsletter, main .services__wrapper .wrap .aids__container .help__container .service span.icon-newsletter, main .services__wrapper .wrap .aids__container .help__container .help span.icon-newsletter, main .help__wrapper .wrap .services__container .service__container .service span.icon-newsletter, main .help__wrapper .wrap .services__container .service__container .help span.icon-newsletter, main .help__wrapper .wrap .services__container .help__container .service span.icon-newsletter, main .help__wrapper .wrap .services__container .help__container .help span.icon-newsletter, main .help__wrapper .wrap .aids__container .service__container .service span.icon-newsletter, main .help__wrapper .wrap .aids__container .service__container .help span.icon-newsletter, main .help__wrapper .wrap .aids__container .help__container .service span.icon-newsletter, main .help__wrapper .wrap .aids__container .help__container .help span.icon-newsletter {
+  background-image: url("../media/img/icon-espaceClient-newsletter-v5.png");
+}
+main .services__wrapper .wrap .services__container .service__container .service span.icon-faq, main .services__wrapper .wrap .services__container .service__container .help span.icon-faq, main .services__wrapper .wrap .services__container .help__container .service span.icon-faq, main .services__wrapper .wrap .services__container .help__container .help span.icon-faq, main .services__wrapper .wrap .aids__container .service__container .service span.icon-faq, main .services__wrapper .wrap .aids__container .service__container .help span.icon-faq, main .services__wrapper .wrap .aids__container .help__container .service span.icon-faq, main .services__wrapper .wrap .aids__container .help__container .help span.icon-faq, main .help__wrapper .wrap .services__container .service__container .service span.icon-faq, main .help__wrapper .wrap .services__container .service__container .help span.icon-faq, main .help__wrapper .wrap .services__container .help__container .service span.icon-faq, main .help__wrapper .wrap .services__container .help__container .help span.icon-faq, main .help__wrapper .wrap .aids__container .service__container .service span.icon-faq, main .help__wrapper .wrap .aids__container .service__container .help span.icon-faq, main .help__wrapper .wrap .aids__container .help__container .service span.icon-faq, main .help__wrapper .wrap .aids__container .help__container .help span.icon-faq {
+  background-image: url("../media/img/icon-espaceClient-faq-v5.png");
+}
+main .services__wrapper .wrap .services__container .service__container .service > div, main .services__wrapper .wrap .services__container .service__container .help > div, main .services__wrapper .wrap .services__container .help__container .service > div, main .services__wrapper .wrap .services__container .help__container .help > div, main .services__wrapper .wrap .aids__container .service__container .service > div, main .services__wrapper .wrap .aids__container .service__container .help > div, main .services__wrapper .wrap .aids__container .help__container .service > div, main .services__wrapper .wrap .aids__container .help__container .help > div, main .help__wrapper .wrap .services__container .service__container .service > div, main .help__wrapper .wrap .services__container .service__container .help > div, main .help__wrapper .wrap .services__container .help__container .service > div, main .help__wrapper .wrap .services__container .help__container .help > div, main .help__wrapper .wrap .aids__container .service__container .service > div, main .help__wrapper .wrap .aids__container .service__container .help > div, main .help__wrapper .wrap .aids__container .help__container .service > div, main .help__wrapper .wrap .aids__container .help__container .help > div {
+  width: 100%;
+  margin-top: 20px;
+}
+main .services__wrapper .wrap .services__container .service__container .help, main .services__wrapper .wrap .services__container .help__container .help, main .services__wrapper .wrap .aids__container .service__container .help, main .services__wrapper .wrap .aids__container .help__container .help, main .help__wrapper .wrap .services__container .service__container .help, main .help__wrapper .wrap .services__container .help__container .help, main .help__wrapper .wrap .aids__container .service__container .help, main .help__wrapper .wrap .aids__container .help__container .help {
+  padding: 50px 20px;
+}
+main .services__wrapper .wrap .services__container .service__container .help span, main .services__wrapper .wrap .services__container .help__container .help span, main .services__wrapper .wrap .aids__container .service__container .help span, main .services__wrapper .wrap .aids__container .help__container .help span, main .help__wrapper .wrap .services__container .service__container .help span, main .help__wrapper .wrap .services__container .help__container .help span, main .help__wrapper .wrap .aids__container .service__container .help span, main .help__wrapper .wrap .aids__container .help__container .help span {
+  position: static;
+}
+main .services__wrapper .wrap .services__container .service__container .help a, main .services__wrapper .wrap .services__container .help__container .help a, main .services__wrapper .wrap .aids__container .service__container .help a, main .services__wrapper .wrap .aids__container .help__container .help a, main .help__wrapper .wrap .services__container .service__container .help a, main .help__wrapper .wrap .services__container .help__container .help a, main .help__wrapper .wrap .aids__container .service__container .help a, main .help__wrapper .wrap .aids__container .help__container .help a {
+  padding-left: 0;
+  padding-right: 0;
+}
+main .services__wrapper .wrap .services__container .help__container, main .services__wrapper .wrap .aids__container .help__container, main .help__wrapper .wrap .services__container .help__container, main .help__wrapper .wrap .aids__container .help__container {
+  padding-top: 0;
+}
+main .services__wrapper .wrap .services__container .slick-list, main .services__wrapper .wrap .aids__container .slick-list, main .help__wrapper .wrap .services__container .slick-list, main .help__wrapper .wrap .aids__container .slick-list {
+  display: flex !important;
+}
+main .services__wrapper .wrap .services__container .slick-list .slick-track, main .services__wrapper .wrap .aids__container .slick-list .slick-track, main .help__wrapper .wrap .services__container .slick-list .slick-track, main .help__wrapper .wrap .aids__container .slick-list .slick-track {
+  display: flex !important;
+}
+main .services__wrapper .wrap .services__container .slick-list .slick-track .slick-slide, main .services__wrapper .wrap .aids__container .slick-list .slick-track .slick-slide, main .help__wrapper .wrap .services__container .slick-list .slick-track .slick-slide, main .help__wrapper .wrap .aids__container .slick-list .slick-track .slick-slide {
+  display: flex !important;
+}
+main .services__wrapper .wrap .services__container .slick-list .slick-track .slick-slide > div, main .services__wrapper .wrap .aids__container .slick-list .slick-track .slick-slide > div, main .help__wrapper .wrap .services__container .slick-list .slick-track .slick-slide > div, main .help__wrapper .wrap .aids__container .slick-list .slick-track .slick-slide > div {
+  width: 100% !important;
+}
+main .services__wrapper .wrap .services__container .slick-dots, main .services__wrapper .wrap .aids__container .slick-dots, main .help__wrapper .wrap .services__container .slick-dots, main .help__wrapper .wrap .aids__container .slick-dots {
+  bottom: -45px;
+}
+main .services__wrapper .wrap .services__container .slick-dots li, main .services__wrapper .wrap .aids__container .slick-dots li, main .help__wrapper .wrap .services__container .slick-dots li, main .help__wrapper .wrap .aids__container .slick-dots li {
+  margin-left: 5px;
+}
+main .services__wrapper .wrap .services__container .slick-dots li.slick-active button:before, main .services__wrapper .wrap .aids__container .slick-dots li.slick-active button:before, main .help__wrapper .wrap .services__container .slick-dots li.slick-active button:before, main .help__wrapper .wrap .aids__container .slick-dots li.slick-active button:before {
+  font-size: 36px !important;
+}
+
+@media (min-width: 980px) {
+  main .espace-client__wrapper {
+    padding: 50px 0;
+  }
+  main .espace-client__wrapper .block__container {
+    display: flex;
+  }
+  main .espace-client__wrapper .block__container .block {
+    width: 31%;
+    margin-bottom: 0;
+    margin-right: 4%;
+  }
+  main .espace-client__wrapper .block__container .block.tuto-active {
+    position: relative;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  main .espace-client__wrapper .block__container .block > img {
+    display: block;
+  }
+  main .espace-client__wrapper .block__container .block h2 {
+    padding: 20px 40px;
+  }
+  main .espace-client__wrapper .block__container .block ul {
+    padding-bottom: 20px;
+  }
+  main .espace-client__wrapper .block__container .block ul li {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  main .espace-client__wrapper .block__container .modal-block.tuto-active {
+    display: block;
+  }
+  main .espace-client__wrapper .block__container div:nth-child(2), main .espace-client__wrapper .block__container div:nth-child(6) {
+    left: 35%;
+  }
+  main .espace-client__wrapper .block__container div:nth-child(4) {
+    left: 68.3%;
+  }
+  main .services__wrapper .wrap, main .help__wrapper .wrap {
+    width: 100%;
+  }
+  main .services__wrapper .wrap .services__container, main .services__wrapper .wrap .aids__container, main .help__wrapper .wrap .services__container, main .help__wrapper .wrap .aids__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  main .services__wrapper .wrap .services__container .service__container, main .services__wrapper .wrap .services__container .help__container, main .services__wrapper .wrap .aids__container .service__container, main .services__wrapper .wrap .aids__container .help__container, main .help__wrapper .wrap .services__container .service__container, main .help__wrapper .wrap .services__container .help__container, main .help__wrapper .wrap .aids__container .service__container, main .help__wrapper .wrap .aids__container .help__container {
+    width: 23%;
+    min-width: auto;
+    margin-right: 0;
+  }
+  main .services__wrapper .wrap .services__container .help__container, main .services__wrapper .wrap .aids__container .help__container, main .help__wrapper .wrap .services__container .help__container, main .help__wrapper .wrap .aids__container .help__container {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  main .services__wrapper .wrap .help__container, main .help__wrapper .wrap .help__container {
+    margin-top: 30px;
+    transition: 125ms ease-out;
+  }
+  main .services__wrapper .wrap .help__container:hover, main .help__wrapper .wrap .help__container:hover {
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.12);
+  }
+  main .services__wrapper .wrap .help__container:nth-child(2) a, main .services__wrapper .wrap .help__container:nth-child(3) a, main .help__wrapper .wrap .help__container:nth-child(2) a, main .help__wrapper .wrap .help__container:nth-child(3) a {
+    cursor: default;
+  }
+}
+/* ! SIZES
+------------------------- */
+/*$font-root              : rnd( $font-size / 16 * 100% )
+$line-height            : rnd( 16 / $font-size )*/
+main .espace-client__wrapper .block__container .commercial__block > *:not(img) {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+main .espace-client__wrapper .block__container .commercial__block h2 {
+  font-size: 22px;
+  color: #222222;
+  border-bottom: none;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+main .espace-client__wrapper .block__container .commercial__block p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #757575;
+}
+main .espace-client__wrapper .block__container .commercial__block p strong {
+  font-weight: 600;
+}
+main .espace-client__wrapper .block__container .commercial__block p:last-child {
+  margin-bottom: 0 !important;
+}
+main .espace-client__wrapper .block__container .commercial__block:first-child p:first-of-type {
+  margin-bottom: 20px;
+}
+main .espace-client__wrapper .block__container .commercial__block:first-child p:not(:first-of-type) {
+  margin-bottom: 10px;
+}
+main .espace-client__wrapper .block__container .commercial__block:first-child p:not(:first-of-type) strong {
+  margin-right: 5px;
+}
+main .espace-client__wrapper .block__container .commercial__block:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 980px) {
+  main .espace-client__wrapper .block__container .commercial__block {
+    padding-bottom: 80px;
+  }
+  main .espace-client__wrapper .block__container .commercial__block h2 {
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: 23px;
+  }
+}
+::-webkit-input-placeholder {
+  color: #757575;
+  font-size: 14px;
+}
+
+:-moz-placeholder {
+  color: #757575;
+  font-size: 14px;
+}
+
+::-moz-placeholder {
+  color: #757575;
+  font-size: 14px;
+}
+
+:-ms-input-placeholder {
+  color: #757575;
+  font-size: 14px;
+}
+
+input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.checkbox__container input {
+  display: none;
+}
+.checkbox__container input:checked + span {
+  border: 1px solid #d21d00 !important;
+}
+.checkbox__container input:checked + span:after {
+  content: "✓";
+  font-size: 10px;
+  color: #d21d00;
+}
+.checkbox__container label {
+  position: relative;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  color: #757575;
+  padding-left: 30px;
+}
+.checkbox__container label a {
+  color: #d21d00;
+}
+.checkbox__container label span {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  border-radius: 5px;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #757575;
+}
+.checkbox__container label span:after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 1px;
+  left: 0;
+  display: block;
+  text-align: center;
+  line-height: 16px;
+  color: #d20000;
+}
+
+.radios__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.radios__wrapper p {
+  color: #222222;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.radios__wrapper .radio__container {
+  position: relative;
+  margin-right: 30px;
+}
+.radios__wrapper .radio__container label {
+  position: relative;
+  padding-left: 25px;
+  color: #d20000;
+  font-size: 15px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.radios__wrapper .radio__container label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.radios__wrapper .radio__container label span {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  display: block;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1px solid #d20000;
+}
+.radios__wrapper .radio__container label input[disabled] ~ span {
+  background: #e4e4e4;
+}
+.radios__wrapper .radio__container label input:checked ~ span:after {
+  display: block;
+  position: absolute;
+  height: 5px;
+  top: 5px;
+  left: 5px;
+  width: 5px;
+  content: "";
+  background-color: #d20000;
+  border-radius: 50%;
+}
+
+.select__wrapper {
+  background: transparent;
+}
+.select__wrapper label {
+  color: #222222;
+  font-size: 14px;
+  font-weight: 600;
+}
+.select__wrapper .select__container {
+  width: 100%;
+  background: #ffffff;
+  position: relative;
+  margin-top: 5px;
+}
+.select__wrapper .select__container select {
+  border-radius: 0 !important;
+  height: 45px;
+  position: relative !important;
+  width: 100%;
+  font-weight: 400;
+  outline: none;
+  -webkit-appearance: none;
+  font-size: 14px;
+  color: #757575;
+  padding-left: 20px;
+  border: 1px solid #e4e4e4;
+}
+.select__wrapper .select__container select:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  outline-offset: 0;
+  border-color: #c7c7c7 !important;
+}
+.select__wrapper .select__container select[disabled] {
+  background: #e4e4e4 !important;
+}
+.select__wrapper .select__container:after {
+  content: "";
+  font-family: "icons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  color: #d20000;
+  position: absolute;
+  font-size: 15px;
+  right: 15px;
+  font-weight: 600;
+  top: 55%;
+  margin-top: -7.5px;
+  z-index: 5;
+}
+
+.input__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.input__container input[type=file] {
+  display: none;
+}
+.input__container input[type=file] + span {
+  color: #222222;
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+}
+.input__container input[type=file] ~ label + span {
+  position: absolute;
+  right: 50px;
+  top: 45%;
+  font-size: 10px;
+  cursor: pointer;
+  color: #d21d00;
+}
+.input__container input[type=file] ~ label {
+  margin-top: 8px;
+  border: 1px solid #e4e4e4;
+  position: relative;
+  height: 45px;
+}
+.input__container input[type=file] ~ label p {
+  line-height: 45px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #757575;
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+.input__container input[type=file] ~ label p:after {
+  content: "";
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  right: 0;
+  background: url("../media/img/icon-file-v5.png") no-repeat center;
+  border-left: 1px solid #c7c7c7;
+}
+.input__container label {
+  display: block;
+  color: #222222;
+  font-size: 14px;
+  font-weight: 600;
+}
+.input__container label[for=file] {
+  cursor: pointer;
+}
+.input__container input[type=text], .input__container input[type=email], .input__container input[type=number], .input__container input[type=password] {
+  border: 1px solid #e4e4e4;
+  height: 45px;
+  width: 100%;
+  margin-top: 8px;
+  padding-left: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #757575;
+}
+.input__container input[type=text]:focus, .input__container input[type=email]:focus, .input__container input[type=number]:focus, .input__container input[type=password]:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+.input__container input:disabled {
+  background: #e4e4e4;
+}
+
+.required label:after {
+  content: "";
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  background: url("../media/img/icon-warning-v5.png") no-repeat center;
+  background-size: contain;
+  position: relative;
+  top: 2px;
+  left: 5px;
+}
+.required input, .required select, .required textarea {
+  border: 1px solid #d21d00 !important;
+  color: #d21d00 !important;
+}
+.required ::-webkit-input-placeholder {
+  color: #d21d00 !important;
+}
+.required :-moz-placeholder {
+  color: #d21d00 !important;
+}
+.required ::-moz-placeholder {
+  color: #d21d00 !important;
+}
+.required :-ms-input-placeholder {
+  color: #d21d00 !important;
+}
+
+/* ! SIZES
+------------------------- */
+/*$font-root              : rnd( $font-size / 16 * 100% )
+$line-height            : rnd( 16 / $font-size )*/
+.mini-cart {
+  width: 293px;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0);
+  z-index: 99;
+  height: 431px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s ease-out;
+  padding-top: 30px;
+  margin-top: -10px;
+}
+.no-webp .mini-cart {
+  background: url("../media/img/mini-cart-bg.png") 0 0 no-repeat;
+}
+.webp .mini-cart {
+  background: url("../media/img/webp/mini-cart-bg.png.webp") 0 0 no-repeat;
+}
+.mini-cart.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+.mini-cart__head {
+  text-align: center;
+  background: #ffffff;
+  height: 35px;
+  line-height: 35px;
+  color: #28253d;
+  border-bottom: 1px solid #2c3e50;
+  position: relative;
+  max-width: 84%;
+  margin: 0 auto;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.mini-cart__scrollable {
+  overflow-y: auto;
+  height: calc(450px - 167px);
+  position: relative;
+}
+.mini-cart__item {
+  position: relative;
+  padding: 15px 15px;
+  text-align: left;
+  overflow: hidden;
+}
+.mini-cart__item:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  left: 15px;
+  right: 15px;
+  margin: auto;
+  bottom: 0;
+  background: #f0f0f0;
+}
+.mini-cart__item a, .mini-cart__item button {
+  transition: 0.15s ease-out;
+}
+.mini-cart__item a:hover, .mini-cart__item button:hover {
+  opacity: 0.7;
+}
+.mini-cart__title {
+  font-size: 16px;
+  line-height: 1.1;
+  margin-bottom: 2px;
+  color: #2c3e50;
+  font-weight: 400 !important;
+}
+.mini-cart__duration {
+  font-size: 12px;
+}
+.mini-cart__delete {
+  border: 0 none;
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  padding: 5px;
+  width: 16px;
+  height: 16px;
+}
+.no-webp .mini-cart__delete {
+  background: url("../media/img/close-icon.png") 0 0/contain no-repeat;
+}
+.webp .mini-cart__delete {
+  background: url("../media/img/webp/close-icon.png.webp") 0 0/contain no-repeat;
+}
+.mini-cart__actions {
+  padding: 5px 15px;
+  text-align: center;
+}
+.mini-cart__actions > a {
+  font-size: 12px;
+  text-decoration: underline;
+}
+.mini-cart__ctas {
+  display: flex;
+  margin: 15px -5px;
+}
+.mini-cart__cta {
+  padding: 0 5px;
+  width: 50%;
+  flex-basis: 50%;
+}
+.mini-cart__cta [class^=cta-] {
+  font-size: 11px !important;
+  width: 100% !important;
+  padding: 10px 5px !important;
+  font-weight: bold;
+}
+.mini-cart__cta .cta-default--cart {
+  padding-right: 20px !important;
+}
+.mini-cart__cta:after {
+  right: 5px;
+}
+
+[class^=cta-] {
+  font-weight: 700;
+}
+
+[class^=cta-light-] {
+  font-weight: 400;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+.cta-light--red {
+  border: 1px solid #d21d00 !important;
+  color: #d21d00 !important;
+}
+
+.cta-light--grey {
+  border: 1px solid #757575 !important;
+  color: #757575 !important;
+}
+
+[class^=cta-default-] {
+  transition: 125ms ease-out;
+}
+
+.cta-default--download {
+  font-weight: 400 !important;
+}
+
+.cta-default--red:hover {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cta-default--white {
+  background-color: #ffffff;
+  color: #d20000;
+  font-weight: 700;
+}
+
+.warning-message {
+  font-size: 10pt;
+  padding: 5px;
+}
+.warning-message::after {
+  content: url(data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjQwcHgiIGhlaWdodD0iNDBweCIgdmlld0JveD0iMCAwIDI0IDI0IiBhcmlhLWxhYmVsbGVkYnk9InNwYW1JY29uVGl0bGUiIHN0cm9rZT0iI2QzMjAyNiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGZpbGw9Im5vbmUiIGNvbG9yPSIjZDMyMDI2Ij4gPHRpdGxlIGlkPSJzcGFtSWNvblRpdGxlIj5TcGFtPC90aXRsZT4gPHBvbHlnb24gcG9pbnRzPSIxNiAzIDIxIDggMjEgMTYgMTYgMjEgOCAyMSAzIDE2IDMgOCA4IDMiLz4gPHBhdGggZD0iTTEyLDggTDEyLDEzIi8+IDxsaW5lIHgxPSIxMiIgeTE9IjE2IiB4Mj0iMTIiIHkyPSIxNiIvPiA8L3N2Zz4=);
+}
+
+/*# sourceMappingURL=styles-espace-client.css.map */

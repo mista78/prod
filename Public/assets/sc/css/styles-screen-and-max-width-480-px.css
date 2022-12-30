@@ -1,0 +1,12 @@
+@media screen and (max-width: 480px){
+    .u-button-block{
+        display:block;
+        width:69%
+    }
+    .flex-container .treeform__content--child > div, .treeform .treeform__content--child > div {
+        width:50.66667% !important;
+    }
+    .flex-container .treeform__content--child > div:nth-child(2), .treeform .treeform__content--child > div:nth-child(2) {
+        width: 45.33333% !important;
+    }
+}
