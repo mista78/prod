@@ -1,30 +1,5 @@
 <?php
 
-use Corcel\Model\Menu;
-use Corcel\Model\Post;
-use Corcel\Model\Page;
-// function recursiveMenuFill($returnValue, $items, $parentId) {
-//     $array = [];
-//     if(isset($items[$parentId])) {
-//         foreach ($items[$parentId] as $item) {
-//             [$meta] = array_merge([], array_filter($item['meta'],function($value){
-//                 return $value['meta_key'] == '_menu_item_object_id';
-//             }));
-//             $realItem = Post::find($meta['meta_value']);
-//             $array[] = [
-//                 'id' => $realItem->ID,
-//                 'title' => $realItem->post_title,
-//                 'url' => $realItem->guid,
-//                 'children' => recursiveMenuFill($returnValue, $items, $item['ID'])
-//             ];
-            
-
-//         }
-//     }
-//     return $array;
-// }
-
-
 function Devlie()
 {
     global $request, $route, $rended, $d;

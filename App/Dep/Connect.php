@@ -1,15 +1,6 @@
 <?php
 
 
-$params = [
-    'database'  => denv('DEVLIE_ADMIN_DB'),
-    'host'  => denv('DEVLIE_HOST'),
-    'username'  => denv('DEVLIE_USER'),
-    'password'  => denv('DEVLIE_PASS'),
-    'prefix'    => denv('PREFIX') ?? "wp_" // default prefix is 'wp_', you can change to your own prefix
-];
-Corcel\Database::connect($params);
-
 function connect()
 {
     global $db, $data, $conf;
