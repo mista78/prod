@@ -26,6 +26,6 @@ function connect()
             $db[$key] = $pdo;
         }
     } catch (PDOException $e) {
-        echo $sql . "<br>" . $e->getMessage();
+        dd("<br>" . $e->getMessage());
     }
 }

@@ -203,22 +203,24 @@ function genTable($data = [],$base= null)
     global $key, $db;
     $sql = "";
     $base = ($base !== null) ? $base : denv('DEFAULT_BASE');
-    foreach ($data as $table => $champs) {
-        if(empty($db[$base]->query("SELECT * FROM $table"))) {
-            $sql .= "CREATE TABLE IF NOT EXISTS `$table`(";
-            $sql .= "`id` int(11) NOT NULL AUTO_INCREMENT, PRIMARY KEY (`id`)";
-            $sql .= ");";
-            $db[$base]->query($sql);
-        }
-        foreach ($champs as $champ => $props) {
-            if (empty($db[$base]->query("SELECT $champ FROM $table"))) {
-                $sql .= " ALTER TABLE `$table` ADD COLUMN `$champ` $props NULL DEFAULT NULL AFTER `$key`; ";
+    if(!empty($base)) {
+        foreach ($data as $table => $champs) {
+            if(empty($db[$base]->query("SELECT * FROM $table"))) {
+                $sql .= "CREATE TABLE IF NOT EXISTS `$table`(";
+                $sql .= "`id` int(11) NOT NULL AUTO_INCREMENT, PRIMARY KEY (`id`)";
+                $sql .= ");";
+                $db[$base]->query($sql);
             }
-            $key = $champ;
-            foreach ($db[$base]->query("SHOW COLUMNS FROM $table")->fetchAll(PDO::FETCH_ASSOC) as $dropkey => $dropValue) {
-                if (!isset($champs[$dropValue["Field"]])) {
-                    $field = $dropValue["Field"];
-                    $sql .= "ALTER TABLE `$table` DROP COLUMN `$field`;";
+            foreach ($champs as $champ => $props) {
+                if (empty($db[$base]->query("SELECT $champ FROM $table"))) {
+                    $sql .= " ALTER TABLE `$table` ADD COLUMN `$champ` $props NULL DEFAULT NULL AFTER `$key`; ";
+                }
+                $key = $champ;
+                foreach ($db[$base]->query("SHOW COLUMNS FROM $table")->fetchAll(PDO::FETCH_ASSOC) as $dropkey => $dropValue) {
+                    if (!isset($champs[$dropValue["Field"]])) {
+                        $field = $dropValue["Field"];
+                        $sql .= "ALTER TABLE `$table` DROP COLUMN `$field`;";
+                    }
                 }
             }
         }
