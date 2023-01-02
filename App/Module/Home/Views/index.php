@@ -18,9 +18,10 @@ $layouts["sections"] = [
 	[
 
 		"item" => [
-			// [
-			// 	"component" => "text",
-			// ],
+			[
+				"component" => "text",
+				"text" => "hello world"
+			],
 			// [
 			// 	"component" => "block-chiffres",
 			// ],
