@@ -7,4 +7,6 @@
 	} else {
 		$data = null;
 	}
-	Connect();
+	if(denv('DEFAULT_BASE') !== null) {
+		Connect();
+	}
