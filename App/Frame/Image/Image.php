@@ -1,6 +1,7 @@
-<?php  
+<?php
 
-function resizedName($file, $size){
+function resizedName($file)
+{
     $sizeAvailable = [
         [
             "name" => "xs",
@@ -19,39 +20,33 @@ function resizedName($file, $size){
             "size" => 3000,
         ],
     ];
+    $html = "<picture>";
     $info = pathinfo($file);
-    $chemin = WEBROOT . "img" . DS . $file;
+    $chemin = ROOT . "Public/img" . DS . $file;
     $imgsize = getimagesize($chemin);
 
     foreach ($sizeAvailable as $key => $mx) {
-        if($mx["size"] <= $imgsize[0]) {
+        if ($mx["size"] <= $imgsize[0]) {
             $max = $mx["name"];
         }
     }
     foreach ($sizeAvailable as $key => $mx) {
-        $size = ($size < $imgsize[0]) ? $size : $imgsize[0];
-        if($mx["size"] <= $size) {
+        if ($mx["size"] <= $imgsize[0]) {
             $min = $mx["name"];
+            $html .= "<source media='(max-width: " . $mx["size"] . "px)' srcset='" . WEBROOT . "Public/img/" . $info['filename'] . "_" . $max . "_" . $min . "." . $info['extension'] . "' alt='".$file."' />";
         }
     }
-    $return = WEBROOT . "img/" . $info['filename'] . '_max_' . $max . '_' . $min . '.' . $info['extension'];
-    return $return;
+    $html .= "<img src='" . WEBROOT . "Public/img" . DS . $file . "' alt='".$file."' />";
+    $html .= "</picture>";
+    return $html;
 }
 
-function resizeImage($file, $max, $min, $width, $height){
-    $pathinfo   = pathinfo(trim($file, '/'));
-    $output     = $pathinfo['dirname'] . '/' . $pathinfo['filename'] . '_max_' . $max . '_' . $min . '.' . $pathinfo['extension'];
-
-    $info                         = getimagesize($file);
-    list($width_old, $height_old) = $info;
-
-    switch ( $info[2] ) {
-        case IMAGETYPE_GIF:   $image = imagecreatefromgif($file);   break;
-        case IMAGETYPE_JPEG:  $image = imagecreatefromjpeg($file);  break;
-        case IMAGETYPE_PNG:   $image = imagecreatefrompng($file);   break;
-        default: return false;
-    }
-
+# function resize image
+function resizeImage($chemin, $sizename, $size, $width, $height)
+{
+    $info = pathinfo($chemin);
+    $infosize                         = getimagesize($chemin);
+    list($width_old, $height_old) = $infosize;
     $heightRatio = $height_old / $height;
     $widthRatio  = $width_old /  $width;
 
@@ -62,38 +57,49 @@ function resizeImage($file, $max, $min, $width, $height){
     $height_crop = ($height_old / $optimalRatio);
     $width_crop  = ($width_old  / $optimalRatio);
 
-    $image_crop = imagecreatetruecolor( $width_crop, $height_crop );
-    $image_resized = imagecreatetruecolor($width, $height);
+    $extension = $info['extension'];
+    $newname = $info['dirname'] . '/' . $info['filename'] . '_' . $sizename . '_' . $size . '.' . $extension;
+    $image = null;
+    switch ($extension) {
+        case 'jpg':
+        case 'jpeg':
+        case 'JPG':
+        case 'JPEG':
+            $image = imagecreatefromjpeg($chemin);
+            break;
+        case 'png':
+        case 'PNG':
+            # color transparent
 
-    if ( ($info[2] == IMAGETYPE_GIF) || ($info[2] == IMAGETYPE_PNG) ) {
-        $transparency = imagecolortransparent($image);
-        if ($transparency >= 0) {
-            $transparent_color  = imagecolorsforindex($image, $trnprt_indx);
-            $transparency       = imagecolorallocate($image_crop, $trnprt_color['red'], $trnprt_color['green'], $trnprt_color['blue']);
-            imagefill($image_crop, 0, 0, $transparency);
-            imagecolortransparent($image_crop, $transparency);
-            imagefill($image_resized, 0, 0, $transparency);
-            imagecolortransparent($image_resized, $transparency);
-        }elseif ($info[2] == IMAGETYPE_PNG) {
-            imagealphablending($image_crop, false);
-            imagealphablending($image_resized, false);
-            $color = imagecolorallocatealpha($image_crop, 0, 0, 0, 127);
-            imagefill($image_crop, 0, 0, $color);
-            imagesavealpha($image_crop, true);
-            imagefill($image_resized, 0, 0, $color);
-            imagesavealpha($image_resized, true);
-        }
+            $image = imagecreatefrompng($chemin);
+
+            break;
+        case 'gif':
+        case 'GIF':
+            $image = imagecreatefromgif($chemin);
+            break;
     }
-
-    imagecopyresampled($image_crop, $image, 0, 0, 0, 0, $width_crop, $height_crop, $width_old, $height_old);
-    imagecopyresampled($image_resized, $image_crop, 0, 0, ($width_crop - $width) / 2, ($height_crop - $height) / 2, $width, $height, $width, $height);
-
-    switch ( $info[2] ) {
-      case IMAGETYPE_GIF:   imagegif($image_resized, $output, 80);    break;
-      case IMAGETYPE_JPEG:  imagejpeg($image_resized, $output, 80);   break;
-      case IMAGETYPE_PNG:   imagepng($image_resized, $output, 9);    break;
-      default: return false;
+    $new = imagecreatetruecolor($width_crop, $height_crop);
+    imagesavealpha($new, true);
+    $transparent = imagecolorallocatealpha($new, 0, 0, 0, 127);
+    imagefill($new, 0, 0, $transparent);
+    imagecopyresampled($new, $image, 0, 0, 0, 0, $width_crop, $height_crop, imagesx($image), imagesy($image));
+    switch ($extension) {
+        case 'jpg':
+        case 'jpeg':
+        case 'JPG':
+        case 'JPEG':
+            imagejpeg($new, $newname);
+            break;
+        case 'png':
+        case 'PNG':
+            imagepng($new, $newname);
+            break;
+        case 'gif':
+        case 'GIF':
+            imagegif($new, $newname);
+            break;
     }
-
-    return true;
+    imagedestroy($new);
+    imagedestroy($image);
 }
