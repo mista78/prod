@@ -10,8 +10,14 @@ RUN docker-php-ext-install calendar
 RUN docker-php-ext-install dba
 RUN docker-php-ext-install exif
 RUN docker-php-ext-install fileinfo
-RUN docker-php-ext-install gd
-# RUN docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr
+RUN apt-get --yes install libfreetype6-dev \
+                          libjpeg62-turbo-dev \
+                          libpng-dev \
+                          libwebp-dev 
+
+RUN set -e; \
+    docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype; \
+    docker-php-ext-install -j$(nproc) gd
 RUN docker-php-ext-install gettext
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl
 RUN docker-php-ext-install imap
