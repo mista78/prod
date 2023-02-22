@@ -4,7 +4,7 @@ function getWidjet($file, $dataComponent)
 {
 	global $request, $route, $conf;
 	extract(json_decode(json_encode($dataComponent), true));
-	$file = APP . "Component" . DS .  ucfirst($file) . DS .  "index.php";
+	[$file] = glob(APP . "Component" . DS .  ucfirst($file) . DS .  "*.{php,html}",GLOB_BRACE);
 	ob_start();
 	if (file_exists($file)) {
 		require $file;

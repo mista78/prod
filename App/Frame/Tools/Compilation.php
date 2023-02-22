@@ -22,8 +22,8 @@ function CompileCss($array = [], $formated = "compressed")
         foreach ($sec as  $v) {
             if (isset($v['item'])) {
                 foreach ($v['item'] as  $vi) {
-                    $pathname = APP . 'Component' . DS . ucfirst($vi['component']) . DS . '*.scss';
-                    foreach (glob($pathname) as $file) {
+                    $pathname = APP . 'Component' . DS . ucfirst($vi['component']) . DS . '*.{scss,css}';
+                    foreach (glob($pathname, GLOB_BRACE) as $file) {
                         if (file_exists($file) && !in_array($file, $path)) {
                             $path[] = $file;
                         }
