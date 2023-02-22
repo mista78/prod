@@ -137,7 +137,8 @@ function runstyle($path, $format_style = "expanded")
         $file_path_elements = pathinfo($file_path);
         $file_dir = $file_path_elements["dirname"];
         $file_name = $file_path_elements['filename'];
-        $string_sass .= file_get_contents($file_dir . DS . $file_name . ".scss");
+        [$file] = glob($file_dir . DS . $file_name . ".{scss,css}", GLOB_BRACE);
+        $string_sass .= file_get_contents($file);
         $file_dir = str_replace([
             ROOT . 'App' . DS . 'Component' . DS,
             ROOT . "Public" . DS . 'assets' . DS
