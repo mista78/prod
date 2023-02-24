@@ -74,48 +74,23 @@ function HtmlScript($array = [])
         $data = file_get_contents($value);
         $elem = '';
         if (empty($data)) continue;
-        if (strpos($value, "assets") === false) {
-            $elem .= "window.addEventListener('DOMContentLoaded', (event) => {(function(wd,e) { \n";
-        }
         $elem .= $data;
-        if (strpos($value, "assets") === false) {
-            $elem .= "})(window.wd,event);}); \n";
-        }
-        if (!isset($_GET['debug'])) {
-
-            $data = new JavaScriptPacker($elem);
-            $replace = str_replace([
-                APP . 'Component' . DS,
-                ROOT . 'Public' . DS . 'assets' . DS . 'js' . DS,
-                '/index.js',
-            ], '', $value);
-            $html .= BuildHtml([
-                [
-                    "tags" => "script",
-                    "attributes" => [
-                        "type" => "module",
-                        "data-component" => "$replace",
-                    ],
-                    "content" => $data->pack(),
-                ]
-            ]);
-        } else {
-            $replace = str_replace([
-                APP . 'Component' . DS,
-                ROOT . 'Public' . DS . 'assets' . DS . 'js' . DS,
-                '/index.js',
-            ], '', $value);
-            $html .= BuildHtml([
-                [
-                    "tags" => "script",
-                    "attributes" => [
-                        "type" => "module",
-                        "data-component" => "$replace",
-                    ],
-                    "content" => $elem,
-                ]
-            ]);
-        }
+        $data = new JavaScriptPacker($elem);
+        $replace = str_replace([
+            APP . 'Component' . DS,
+            ROOT . 'Public' . DS . 'assets' . DS . 'js' . DS,
+            '/index.js',
+        ], '', $value);
+        $html .= BuildHtml([
+            [
+                "tags" => "script",
+                "attributes" => [
+                    "type" => "text/babel",
+                    "data-component" => "$replace",
+                ],
+                "content" => $elem,
+            ]
+        ]);
     }
     return $html;
 }
