@@ -35,11 +35,6 @@ RUN docker-php-ext-configure hash --with-mhash
 RUN a2enmod rewrite
 RUN a2enmod headers
 
-# install v8js
-RUN apt-get install -y libv8-dev
-RUN pecl install v8js
-RUN docker-php-ext-enable v8js
-
 
 # Imagemagick
 RUN sed -i 's/ServerSignature On/ServerSignature Off/gi' /etc/apache2/conf-enabled/security.conf
