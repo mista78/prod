@@ -1,6 +1,7 @@
 <?php
 
 use ScssPhp\ScssPhp\Compiler;
+use MatthiasMullie\Minify;
 
 /**
  * compressed
@@ -72,6 +73,7 @@ function HtmlScript($array = [])
     $html .= PHP_EOL;
     foreach ($array as $value) {
         $data = file_get_contents($value);
+        $minifier = new Minify\JS($value);
         $elem = '';
         if (empty($data)) continue;
         $elem .= $data;
@@ -88,7 +90,7 @@ function HtmlScript($array = [])
                     "type" => "text/babel",
                     "data-component" => "$replace",
                 ],
-                "content" => $elem,
+                "content" => $minifier->minify(),
             ]
         ]);
     }
