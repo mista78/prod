@@ -9,8 +9,8 @@
 		<title>Kmaoulida <?= (" - " . $conf['block.title']) ?? ''; ?></title>
 		<script src="/node_modules/react/umd/react.production.min.js"></script>
 		<script src="/node_modules/react-dom/umd/react-dom.production.min.js"></script>
+		<script src="/node_modules/@emotion/css/dist/emotion-css.umd.min.js"></script>
 		<script src="/node_modules/@babel/standalone/babel.min.js"></script>
-
 		<?= CompileCss($view) ?>
 		<?= $conf['block.content'] ?? ''; ?>
 	</head>
